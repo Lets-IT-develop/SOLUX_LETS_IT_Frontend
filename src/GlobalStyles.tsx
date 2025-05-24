@@ -139,8 +139,15 @@ const themeVariables = css`
     font-display: swap;
   }
   :root {
+    /**임시 디자인 시스템 */
     --color-primary: #1E5EFF;
     --color-secondary: #EBEFFF;
+    --color-white: #ffffff;
+
+    --color-light-grey: #f5f5f5;
+    --color-grey: #acacae;
+    --color-dark-grey: #4f5457;
+    --color-black: #000;
 
     --font-family: 'SUIT';
     --font-size-title: 24px;

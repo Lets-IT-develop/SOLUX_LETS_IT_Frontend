@@ -8,4 +8,5 @@
 - [x] Global Style 설정 (폰트 및 컬러 디자인 시스템 포함, 추후 수정 가능)
 
 ### 🧩 Components
-- [ ] 공통 Button 컴포넌트 제작
+- [x] 공통 Button 컴포넌트 제작
+- [x] 공통 Select 컴포넌트 제작
