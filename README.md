@@ -1,8 +1,11 @@
-## Let's IT : 미취업 개발자들을 위한 개발 프로젝트 팀 구성 및 AI를 활용한 포트폴리오 관리 서비스
+## ✅ 작업 사항 0524
 
-### SOLUX 29기 웹시코기 팀
+### 🔧 Chore
+- [x] Biome 린트 도입 및 설정
 
-**FE** : 이한희 | 김규진(Design) <br>
-**BE** : 윤서진(PM) | 김예지 | 이현진 | 한은서 <br>
-<br>
-![image](https://github.com/user-attachments/assets/72de9997-2583-4f36-9198-79718016a072)
+### 🎨 Style
+- [x] Reset CSS 적용
+- [x] Global Style 설정 (폰트 및 컬러 디자인 시스템 포함, 추후 수정 가능)
+
+### 🧩 Components
+- [ ] 공통 Button 컴포넌트 제작
