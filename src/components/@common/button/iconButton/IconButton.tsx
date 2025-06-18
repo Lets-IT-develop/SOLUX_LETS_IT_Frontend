@@ -1,5 +1,5 @@
 import * as S from "./IconButton.styles";
-import { handleImageError } from "../../../util/handleImageError";
+import { handleImageError } from "../../../../util/handleImageError";
 
 interface IconButtonProps {
   iconSrc: string;
