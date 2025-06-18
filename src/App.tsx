@@ -1,21 +1,17 @@
-import Button from './components/button/Button';
-import Select from './components/select/Select';
-import GlobalStyle from './GlobalStyles';
-import styled from '@emotion/styled';
+import { ThemeProvider } from "@emotion/react";
+import { theme } from "./styles/theme";
+import GlobalStyle from "./styles/GlobalStyles";
+import TextButton from "./components/button/textButton/TextButton";
+import IconButton from "./components/button/iconButton/IconButton";
+import IconSrc from "/public/icons/ic_select.svg";
 
-const Wrap = styled.div`
-padding: 30px;
-  width: 300px;
-  display: flex;
-  gap: 30px;
-`;
 function App() {
   return (
-    <Wrap>
+    <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Button variant="smallPrimary">버튼 예시입니다</Button>
-      <Select options={['옵션1', '옵션2', '옵션3']} value="옵션1" handleSelectedValue={() => {}} />
-    </Wrap>
+      <TextButton variant="primary" buttonText="Primary" />
+      <IconButton iconSrc={IconSrc} />
+    </ThemeProvider>
   );
 }
 

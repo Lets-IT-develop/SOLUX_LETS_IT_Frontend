@@ -1,1 +1,1 @@
-export type ButtonVariantsTypes = 'largePrimary' | 'smallPrimary';
+export type TextButtonVariantsTypes = "primary" | "secondary" | "tertiary";
