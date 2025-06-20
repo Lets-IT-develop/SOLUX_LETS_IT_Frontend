@@ -1,4 +1,3 @@
-// App styles
 export * from './theme';
-export * from './GlobalStyles';
+export * from './GlobalStyle';
 export * from './reset';
