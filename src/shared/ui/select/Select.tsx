@@ -1,7 +1,7 @@
-import * as S from './Select.styles';
-import { useRef, useState } from 'react';
-import useOutsideClick from '../../hooks/useOutsideClick';
-import SelectDownIcon from '/public/icons/select-down-icon.svg';
+import * as S from "./Select.styles";
+import { useRef, useState } from "react";
+import useOutsideClick from "../../../hooks/useOutsideClick";
+import SelectDownIcon from "/public/icons/select-down-icon.svg";
 
 interface SelectProps {
   options: string[];
@@ -22,7 +22,7 @@ const Select = ({ options, value, handleSelectedValue }: SelectProps) => {
   useOutsideClick(backgroundRef, () => setIsOpen(false));
 
   const handleSelectKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
-    if (e.key === 'Enter' || e.key === ' ') {
+    if (e.key === "Enter" || e.key === " ") {
       e.stopPropagation();
       e.preventDefault();
       if (isOpen) {
@@ -31,20 +31,20 @@ const Select = ({ options, value, handleSelectedValue }: SelectProps) => {
       }
       setIsOpen(!isOpen);
     }
-    if (e.key === 'Escape') {
+    if (e.key === "Escape") {
       setIsOpen(false);
     }
-    if (e.key === 'ArrowDown') {
+    if (e.key === "ArrowDown") {
       e.preventDefault();
       setFocusedIndex(Math.min(focusedIndex + 1, options.length - 1));
       setIsOpen(true);
     }
-    if (e.key === 'ArrowUp') {
+    if (e.key === "ArrowUp") {
       e.preventDefault();
       setFocusedIndex(Math.max(focusedIndex - 1, 0));
       setIsOpen(true);
     }
-    if (e.key === 'Tab') {
+    if (e.key === "Tab") {
       setIsOpen(false);
     }
   };
@@ -56,7 +56,9 @@ const Select = ({ options, value, handleSelectedValue }: SelectProps) => {
       <S.SelectField
         aria-haspopup="listbox"
         aria-expanded={isOpen}
-        aria-activedescendant={isOpen ? `option-${options[focusedIndex]}` : undefined}
+        aria-activedescendant={
+          isOpen ? `option-${options[focusedIndex]}` : undefined
+        }
         aria-label={selectedValue}
         onClick={() => setIsOpen(!isOpen)}
         $isOpen={isOpen}

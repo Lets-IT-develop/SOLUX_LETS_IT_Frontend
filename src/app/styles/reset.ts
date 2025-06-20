@@ -1,7 +1,6 @@
-/** @jsxImportSource @emotion/react */
-import { Global, css } from '@emotion/react';
+import { css } from "@emotion/react";
 
-const resetCss = css`
+export const reset = css`
   html,
   body,
   div,
@@ -114,7 +113,7 @@ const resetCss = css`
   blockquote::after,
   q::before,
   q::after {
-    content: '';
+    content: "";
     content: none;
   }
 
@@ -129,50 +128,3 @@ const resetCss = css`
     cursor: pointer;
   }
 `;
-
-const themeVariables = css`
-  @font-face {
-    font-family: 'SUIT';
-    src: url('/fonts/SUIT-Variable.woff2') format('woff2-variations');
-    font-weight: 100 900; 
-    font-style: normal;
-    font-display: swap;
-  }
-  :root {
-    /**임시 디자인 시스템 */
-    --color-primary: #1E5EFF;
-    --color-secondary: #EBEFFF;
-    --color-white: #ffffff;
-
-    --color-light-grey: #f5f5f5;
-    --color-grey: #acacae;
-    --color-dark-grey: #4f5457;
-    --color-black: #000;
-
-    --font-family: 'SUIT';
-    --font-size-title: 24px;
-    --font-weight-title: 700;
-
-    --font-size-subtitle: 14px;
-    --font-weight-subtitle: 700;
-
-    --font-size-placeholder: 14px;
-    --font-weight-placeholder: 500;
-
-    --font-size-body: 12px;
-    --font-weight-body: 500;
-
-    --height-header: 66px;
-    --max-width-container: 430px;
-
-    --z-index-header: 3;
-    --z-index-toast: 2;
-    --z-index-select: 1;
-    --z-index-modal-background: 50;
-    --z-index-modal: 100;
-  }
-`;
-
-const GlobalStyle = () => <Global styles={[resetCss, themeVariables]} />;
-
-export default GlobalStyle;
