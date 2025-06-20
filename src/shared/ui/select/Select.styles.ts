@@ -1,6 +1,6 @@
-import styled from "@emotion/styled";
-import { fadeIn } from "../../../animations/animations";
-import { css } from "@emotion/react";
+import styled from '@emotion/styled';
+import { fadeIn } from '../../lib';
+import { css } from '@emotion/react';
 
 export const SelectContainer = styled.div`
   width: 100%;
@@ -21,7 +21,7 @@ export const SelectField = styled.button<{ $isOpen: boolean }>`
   justify-content: space-between;
   align-items: center;
   border: ${({ $isOpen }) =>
-    $isOpen ? "1px solid var(--color-black)" : "1px solid var(--color-grey)"};
+    $isOpen ? '1px solid var(--color-black)' : '1px solid var(--color-grey)'};
 `;
 
 export const SelectIcon = styled.img`
