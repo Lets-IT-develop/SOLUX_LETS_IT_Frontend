@@ -58,7 +58,6 @@ export const OptionItem = styled.li<{ $isFocused: boolean }>`
     $isFocused &&
     css`
       color: ${theme.colors.black};
-      background-color: ${theme.colors.gray2};
     `}
   &:active {
     background-color: ${({ theme }) => theme.colors.gray1};

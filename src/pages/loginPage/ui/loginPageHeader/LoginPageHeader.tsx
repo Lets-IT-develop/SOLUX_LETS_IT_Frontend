@@ -1,12 +1,12 @@
 import * as S from './LoginPageHeader.styles';
-import GoBackIcon from '../../../shared/assets/icons/ic_arrow_back.svg';
-import { getProgressDegree } from '../../../shared/lib/getProcessDegree';
-import { SIGNUP_STEPS } from '../../../shared/constants/steps';
+import GoBackIcon from '../../../../shared/assets/icons/ic_arrow_back.svg';
+import { getProgressDegree } from '../../../../shared/lib/getProcessDegree';
+import { SIGNUP_STEPS } from '../../../../shared/constants/steps';
 import {
   STATIC_SIGNUP_MESSAGES,
   DYNAMIC_SIGNUP_MESSAGES,
-} from '../../../shared/constants/messages';
-import { ProgressBar } from '../../../features/login/ui';
+} from '../../../../shared/constants/messages';
+import { ProgressBar } from '../../../../features/login/ui';
 
 interface LoginPageHeaderProps {
   goBackStep: () => void;

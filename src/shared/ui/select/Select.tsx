@@ -6,15 +6,15 @@ import useOutsideClick from '../../lib/useOutsideClick';
 interface SelectProps<T> {
   options: T[];
   value: T;
-  handleSelectedValue: (value: T) => void;
+  onSelectedValueChange: (value: T) => void;
 }
 
-const Select = <T extends string>({ options, value, handleSelectedValue }: SelectProps<T>) => {
+const Select = <T extends string>({ options, value, onSelectedValueChange }: SelectProps<T>) => {
   const [isOpen, setIsOpen] = useState(false);
   const [focusedIndex, setFocusedIndex] = useState(0);
 
   const handleSelectOption = (option: T) => {
-    handleSelectedValue(option);
+    onSelectedValueChange(option);
     setIsOpen(false);
   };
 
