@@ -3,17 +3,17 @@ import { useRef, useState } from 'react';
 import SelectDownIcon from '../../assets/icons/ic_select.svg';
 import useOutsideClick from '../../lib/useOutsideClick';
 
-interface SelectProps {
-  options: string[];
-  value: string;
-  handleSelectedValue: (value: string) => void;
+interface SelectProps<T> {
+  options: T[];
+  value: T;
+  handleSelectedValue: (value: T) => void;
 }
 
-const Select = ({ options, value, handleSelectedValue }: SelectProps) => {
+const Select = <T extends string>({ options, value, handleSelectedValue }: SelectProps<T>) => {
   const [isOpen, setIsOpen] = useState(false);
   const [focusedIndex, setFocusedIndex] = useState(0);
 
-  const handleSelectOption = (option: string) => {
+  const handleSelectOption = (option: T) => {
     handleSelectedValue(option);
     setIsOpen(false);
   };
