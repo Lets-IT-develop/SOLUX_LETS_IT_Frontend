@@ -16,7 +16,7 @@ import { toggleSetData } from '../../shared/lib/utils/toggleSetData';
 // TODO : 버튼 접근 not allowed 설정
 // TODO : 실명 인증 아이콘 추가 (디자인 완성 시)
 // TODO : 실명 인증 기능 추가
-// TODO : 메인 화면으로 이동 시 홈 화면으로 이동
+// TODO : 메인 화면으로 이동 클릭 시 홈 화면으로 이동
 const LoginPage = () => {
   const { funnel, goBackStep, storeData, proceedToNextStep } = useSignupFunnel();
   const ageLabels = AGE_OPTIONS.map((option) => option.label);
@@ -32,7 +32,11 @@ const LoginPage = () => {
               file={context.profileImage}
               onFileChange={(file) => storeData('profileImage', file)}
             />
-            <TextButton variant="primary" onClick={proceedToNextStep} buttonText="다음으로" />
+            <TextButton
+              variant="primary"
+              onClick={proceedToNextStep}
+              buttonText={context.profileImage ? '다음으로' : '건너 뛰기'}
+            />
           </>
         )}
         nickName={({ context }) => (
