@@ -1,6 +1,6 @@
 import * as S from './LoginPageHeader.styles';
 import GoBackIcon from '../../../../shared/assets/icons/ic_arrow_back.svg';
-import { getProgressDegree } from '../../../../shared/lib/getProcessDegree';
+import { getProgressDegree } from '../../../../shared/lib/utils/getProgressDegree';
 import { SIGNUP_STEPS } from '../../../../shared/constants/steps';
 import {
   STATIC_SIGNUP_MESSAGES,

@@ -5,8 +5,8 @@ import { TextButton } from '../../shared/ui/button';
 import LoginPageHeader from './ui/loginPageHeader/LoginPageHeader';
 import { InputGroup } from '../../shared/ui/input';
 import { AGE_OPTIONS, CONSTRAINTS, INTEREST_OPTIONS } from '../../shared/constants/constants';
-import { Select } from '../../shared';
-import { toggleSetData } from '../../shared/lib/toggleSetData';
+import { Select } from '../../shared/ui/select';
+import { toggleSetData } from '../../shared/lib/utils/toggleSetData';
 
 // TODO : 버튼 접근 not allowed 설정
 // TODO : 실명 인증 아이콘 추가 (디자인 완성 시)
@@ -84,7 +84,7 @@ const LoginPage = () => {
             </S.ButtonContainer>
           </>
         )}
-        confirm={({ step }) => (
+        confirm={() => (
           <>
             <TextButton variant="primary" onClick={proceedToNextStep} buttonText="메인 화면으로" />
           </>
