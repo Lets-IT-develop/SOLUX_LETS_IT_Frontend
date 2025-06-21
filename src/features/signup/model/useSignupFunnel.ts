@@ -1,7 +1,6 @@
 import { useFunnel, createFunnelSteps } from '@use-funnel/react-router-dom';
 import { SIGNUP_STEPS } from '../../../shared/constants/steps';
 
-// TODO : interest - > set 변경
 export const useSignupFunnel = () => {
   const steps = createFunnelSteps<{
     profileImage?: File;
