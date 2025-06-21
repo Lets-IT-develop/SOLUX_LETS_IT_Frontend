@@ -11,6 +11,7 @@ export const ProfileImageUploaderImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  cursor: pointer;
 `;
 
 export const ProfileImageUploaderButton = styled.button`
@@ -25,6 +26,7 @@ export const ProfileImageUploaderButton = styled.button`
   border-radius: 50%;
   background-color: ${({ theme }) => theme.colors.white};
   transition: all 0.3s ease-in-out;
+  cursor: pointer;
   &:active {
     scale: 1.1;
   }
