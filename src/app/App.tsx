@@ -1,13 +1,18 @@
 import { ThemeProvider } from '@emotion/react';
 import { theme } from './styles/theme';
 import GlobalStyle from './styles/GlobalStyle';
-import Input from '../shared/ui/input/input/Input';
-
+import InputGroup from '../shared/ui/inputField/inputGroup/InputGroup';
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Input />
+      <InputGroup
+        id="name"
+        label="Name"
+        placeholder="Enter your name"
+        type="text"
+        helperText="This is a helper text"
+      />
     </ThemeProvider>
   );
 }

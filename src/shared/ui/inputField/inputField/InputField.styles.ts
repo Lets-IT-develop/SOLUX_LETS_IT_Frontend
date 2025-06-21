@@ -5,4 +5,5 @@ export const InputField = styled.input`
   border: 1px solid ${({ theme }) => theme.colors.gray3};
   border-radius: 12px;
   padding: 12px 20px;
+  box-sizing: border-box;
 `;
