@@ -4,7 +4,12 @@ import { MultiSelectCard, ProfileImageUploader } from '../../features/login/ui';
 import { TextButton } from '../../shared/ui/button';
 import LoginPageHeader from './ui/loginPageHeader/LoginPageHeader';
 import { InputGroup } from '../../shared/ui/input';
-import { AGE_OPTIONS, CONSTRAINTS, INTEREST_OPTIONS } from '../../shared/constants/constants';
+import {
+  AGE_DETAIL_OPTIONS,
+  AGE_OPTIONS,
+  CONSTRAINTS,
+  INTEREST_OPTIONS,
+} from '../../shared/constants/constants';
 import { Select } from '../../shared/ui/select';
 import { toggleSetData } from '../../shared/lib/utils/toggleSetData';
 
@@ -15,6 +20,7 @@ import { toggleSetData } from '../../shared/lib/utils/toggleSetData';
 const LoginPage = () => {
   const { funnel, goBackStep, storeData, proceedToNextStep } = useSignupFunnel();
   const ageLabels = AGE_OPTIONS.map((option) => option.label);
+  const ageDetailLabels = AGE_DETAIL_OPTIONS.map((option) => option.label);
 
   return (
     <S.LoginPageContainer>
@@ -42,11 +48,18 @@ const LoginPage = () => {
         )}
         age={({ context }) => (
           <>
-            <Select
-              options={ageLabels}
-              value={context.age ? context.age : ageLabels[0]}
-              onSelectedValueChange={(value) => storeData('age', value)}
-            />
+            <S.SelectContainer>
+              <Select
+                options={ageLabels}
+                value={context.age ? context.age : ageLabels[0]}
+                onSelectedValueChange={(value) => storeData('age', value)}
+              />
+              <Select
+                options={ageDetailLabels}
+                value={context.ageDetail ? context.ageDetail : ageDetailLabels[0]}
+                onSelectedValueChange={(value) => storeData('ageDetail', value)}
+              />
+            </S.SelectContainer>
             <TextButton variant="primary" onClick={proceedToNextStep} buttonText="다음으로" />
           </>
         )}
@@ -86,7 +99,11 @@ const LoginPage = () => {
         )}
         confirm={() => (
           <>
-            <TextButton variant="primary" onClick={proceedToNextStep} buttonText="메인 화면으로" />
+            <TextButton
+              variant="primary"
+              onClick={proceedToNextStep}
+              buttonText="Let's IT 시작하기"
+            />
           </>
         )}
       />

@@ -4,15 +4,22 @@ export const LoginPageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 166px;
-  height: 100vh;
-  min-height: 80vh;
+  justify-content: space-between;
+  min-height: 80dvh;
 `;
 
 export const MultiSelectCardContainer = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+`;
+
+export const SelectContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 16px;
 `;
 

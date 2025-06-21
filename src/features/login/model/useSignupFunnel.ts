@@ -7,6 +7,7 @@ export const useSignupFunnel = () => {
     profileImage?: File;
     nickName: string;
     age: string;
+    ageDetail: string;
     interest: Set<string>;
     isAuth: boolean;
   }>()
@@ -22,6 +23,7 @@ export const useSignupFunnel = () => {
         profileImage: undefined,
         nickName: '',
         age: '',
+        ageDetail: '',
         interest: new Set<string>(),
         isAuth: false,
       },
