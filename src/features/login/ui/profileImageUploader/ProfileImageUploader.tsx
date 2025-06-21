@@ -3,16 +3,16 @@ import defaultProfileImage from '../../../../shared/assets/images/default_profil
 import uploadIcon from '../../../../shared/assets/icons/ic_camera.svg';
 
 interface ProfileImageUploaderProps {
-  imageUrl: string;
-  onImageChange: (image: string) => void;
+  file: File | undefined;
+  onFileChange: (file: File) => void;
 }
 
-const ProfileImageUploader = ({ imageUrl, onImageChange }: ProfileImageUploaderProps) => {
-  const profileImageUrl = imageUrl || defaultProfileImage;
+const ProfileImageUploader = ({ file, onFileChange }: ProfileImageUploaderProps) => {
+  const previewUrl = file ? URL.createObjectURL(file) : defaultProfileImage;
 
   return (
     <S.ProfileImageUploaderContainer>
-      <S.ProfileImageUploaderImage src={profileImageUrl} alt="프로필 이미지 삽입" />
+      <S.ProfileImageUploaderImage src={previewUrl} alt="프로필 이미지 삽입" />
       <S.ProfileImageUploaderButton>
         <img src={uploadIcon} alt="프로필 이미지 삽입" />
       </S.ProfileImageUploaderButton>
