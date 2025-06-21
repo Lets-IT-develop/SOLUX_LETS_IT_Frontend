@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const LoginPageContainer = styled.div`
+export const SignUpPageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;

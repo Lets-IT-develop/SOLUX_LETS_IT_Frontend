@@ -1,8 +1,7 @@
-import * as S from './LoginPage.styles';
-import { useSignupFunnel } from '../../features/login';
-import { MultiSelectCard, ProfileImageUploader } from '../../features/login/ui';
+import * as S from './SignUpPage.styles';
+import { useSignupFunnel } from '../../features/signup';
+import { MultiSelectCard, ProfileImageUploader } from '../../features/signup/ui';
 import { TextButton } from '../../shared/ui/button';
-import LoginPageHeader from './ui/loginPageHeader/LoginPageHeader';
 import { InputGroup } from '../../shared/ui/input';
 import {
   AGE_DETAIL_OPTIONS,
@@ -12,18 +11,19 @@ import {
 import { CONSTRAINTS } from '../../shared/constants/constraints';
 import { Select } from '../../shared/ui/select';
 import { toggleSetData } from '../../shared/lib/utils/toggleSetData';
+import SignUpPageHeader from './ui/signUpPageHeader/SignUpPageHeader';
 
 // TODO : 실명 인증 아이콘 추가 (디자인 완성 시)
 // TODO : 실명 인증 기능 추가
 // TODO : 메인 화면으로 이동 클릭 시 홈 화면으로 이동
-const LoginPage = () => {
+const SignUpPage = () => {
   const { funnel, goBackStep, storeData, proceedToNextStep } = useSignupFunnel();
   const ageLabels = AGE_OPTIONS.map((option) => option.label);
   const ageDetailLabels = AGE_DETAIL_OPTIONS.map((option) => option.label);
 
   return (
-    <S.LoginPageContainer>
-      <LoginPageHeader goBackStep={goBackStep} step={funnel.step} />
+    <S.SignUpPageContainer>
+      <SignUpPageHeader goBackStep={goBackStep} step={funnel.step} />
       <funnel.Render
         profileImage={({ context }) => (
           <>
@@ -128,8 +128,8 @@ const LoginPage = () => {
           </>
         )}
       />
-    </S.LoginPageContainer>
+    </S.SignUpPageContainer>
   );
 };
 
-export default LoginPage;
+export default SignUpPage;

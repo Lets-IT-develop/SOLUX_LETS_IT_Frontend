@@ -1,24 +1,25 @@
 import styled from '@emotion/styled';
 
-export const LoginPageHeaderContainer = styled.div`
-  width: 100%;
+export const SignUpPageHeaderContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 60px;
+  gap: 16px;
+  width: 100%;
 `;
 
-export const LoginPageHeaderSection = styled.div`
-  width: 100%;
+export const SignUpPageHeaderSection = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 40px;
+  gap: 28px;
+  width: 100%;
 `;
 
-export const LoginPageGuideText = styled.p`
-  ${({ theme }) => ({ ...theme.typography.bodyLarge })};
-  color: ${({ theme }) => theme.colors.black};
+export const SignUpPageGuideText = styled.p`
+  ${({ theme }) => ({
+    ...theme.typography.bodyLarge,
+  })};
+  text-align: center;
+  line-height: 1.5;
   white-space: pre-line;
   width: 100%;
   text-align: start;

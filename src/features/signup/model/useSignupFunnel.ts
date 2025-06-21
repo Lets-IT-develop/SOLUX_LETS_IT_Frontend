@@ -15,7 +15,7 @@ export const useSignupFunnel = () => {
     .build();
 
   const funnel = useFunnel({
-    id: 'login-funnel',
+    id: 'signup-funnel',
     steps: steps,
     initial: {
       step: 'profileImage',

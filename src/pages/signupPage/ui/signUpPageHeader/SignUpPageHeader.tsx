@@ -1,4 +1,4 @@
-import * as S from './LoginPageHeader.styles';
+import * as S from './SignUpPageHeader.styles';
 import GoBackIcon from '../../../../shared/assets/icons/ic_arrow_back.svg';
 import { getProgressDegree } from '../../../../shared/lib/utils/getProgressDegree';
 import { SIGNUP_STEPS } from '../../../../shared/constants/steps';
@@ -7,16 +7,16 @@ import {
   DYNAMIC_SIGNUP_MESSAGES,
   HIGHLIGHT_TEXT,
 } from '../../../../shared/constants/messages';
-import { ProgressBar } from '../../../../features/login/ui';
+import { ProgressBar } from '../../../../features/signup/ui';
 import { renderWithHighlight } from '../../../../shared/lib';
 
-interface LoginPageHeaderProps {
+interface SignUpPageHeaderProps {
   goBackStep: () => void;
   step: (typeof SIGNUP_STEPS)[number];
   nickname?: string;
 }
 
-const LoginPageHeader = ({ goBackStep, step, nickname = '' }: LoginPageHeaderProps) => {
+const SignUpPageHeader = ({ goBackStep, step, nickname = '' }: SignUpPageHeaderProps) => {
   const getGuideText = () => {
     if (step === 'age' || step === 'interest') {
       return DYNAMIC_SIGNUP_MESSAGES[step](nickname);
@@ -28,18 +28,18 @@ const LoginPageHeader = ({ goBackStep, step, nickname = '' }: LoginPageHeaderPro
     step in HIGHLIGHT_TEXT ? HIGHLIGHT_TEXT[step as keyof typeof HIGHLIGHT_TEXT] : '';
 
   return (
-    <S.LoginPageHeaderSection>
-      <S.LoginPageHeaderContainer>
+    <S.SignUpPageHeaderSection>
+      <S.SignUpPageHeaderContainer>
         <S.GoBackButton onClick={goBackStep}>
           <img src={GoBackIcon} alt="뒤로 가기" />
         </S.GoBackButton>
         <ProgressBar progress={getProgressDegree(step, [...SIGNUP_STEPS])} />
-      </S.LoginPageHeaderContainer>
-      <S.LoginPageGuideText>
+      </S.SignUpPageHeaderContainer>
+      <S.SignUpPageGuideText>
         {renderWithHighlight(getGuideText(), highlightText)}
-      </S.LoginPageGuideText>
-    </S.LoginPageHeaderSection>
+      </S.SignUpPageGuideText>
+    </S.SignUpPageHeaderSection>
   );
 };
 
-export default LoginPageHeader;
+export default SignUpPageHeader;
