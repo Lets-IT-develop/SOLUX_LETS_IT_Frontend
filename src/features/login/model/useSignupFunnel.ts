@@ -1,8 +1,18 @@
-import { useFunnel } from '@use-funnel/react-router-dom';
+import { useFunnel, createFunnelSteps } from '@use-funnel/react-router-dom';
 import { SIGNUP_STEPS } from '../../../shared/constants/steps';
 
 // TODO : interest 타입 정의
-export const useLoginFunnel = () => {
+export const useSignupFunnel = () => {
+  const steps = createFunnelSteps<{
+    profileImage?: File;
+    nickName: string;
+    age: string;
+    interest: string[];
+    isAuth: boolean;
+  }>()
+    .extends(SIGNUP_STEPS)
+    .build();
+
   const funnel = useFunnel<{
     profileImage: { profileImage?: File };
     nickName: { profileImage?: File; nickName: string };
@@ -24,6 +34,7 @@ export const useLoginFunnel = () => {
     };
   }>({
     id: 'login-funnel',
+    steps: steps,
     initial: {
       step: 'profileImage',
       context: {

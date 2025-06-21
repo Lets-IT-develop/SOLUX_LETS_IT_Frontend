@@ -12,6 +12,7 @@ export const ProfileImageUploaderImage = styled.img`
   height: 100%;
   object-fit: cover;
   cursor: pointer;
+  border-radius: 100px;
 `;
 
 export const ProfileImageUploaderButton = styled.button`

@@ -1,1 +1,1 @@
-export { useLoginFunnel } from './model/useLoginFunnel';
+export { useSignupFunnel } from './model/useSignUpFunnel';

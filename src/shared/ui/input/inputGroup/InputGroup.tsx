@@ -4,7 +4,7 @@ import type { ComponentProps } from 'react';
 
 interface InputGroupProps extends ComponentProps<'input'> {
   id: string;
-  label: string;
+  label?: string;
   helperText?: string;
 }
 
