@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { fadeIn } from '../../lib';
+import { fadeIn } from '../../lib/animations/animations';
 import { css } from '@emotion/react';
 
 export const SelectContainer = styled.div`

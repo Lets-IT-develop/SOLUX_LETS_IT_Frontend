@@ -19,8 +19,10 @@ export const LoginPageHeaderSection = styled.div`
 export const LoginPageGuideText = styled.p`
   ${({ theme }) => ({ ...theme.typography.bodyLarge })};
   color: ${({ theme }) => theme.colors.black};
+  white-space: pre-line;
+  width: 100%;
+  text-align: start;
 `;
-
 
 export const GoBackButton = styled.button`
   width: 20px;
