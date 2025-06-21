@@ -13,10 +13,10 @@ import { renderWithHighlight } from '../../../../shared/lib';
 interface SignUpPageHeaderProps {
   goBackStep: () => void;
   step: (typeof SIGNUP_STEPS)[number];
-  nickname?: string;
+  nickname: string;
 }
 
-const SignUpPageHeader = ({ goBackStep, step, nickname = '' }: SignUpPageHeaderProps) => {
+const SignUpPageHeader = ({ goBackStep, step, nickname }: SignUpPageHeaderProps) => {
   const getGuideText = () => {
     if (step === 'age' || step === 'interest') {
       return DYNAMIC_SIGNUP_MESSAGES[step](nickname);

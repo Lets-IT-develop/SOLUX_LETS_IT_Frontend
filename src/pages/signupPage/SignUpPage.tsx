@@ -23,7 +23,11 @@ const SignUpPage = () => {
 
   return (
     <S.SignUpPageContainer>
-      <SignUpPageHeader goBackStep={goBackStep} step={funnel.step} />
+      <SignUpPageHeader
+        goBackStep={goBackStep}
+        step={funnel.step}
+        nickname={funnel.context.nickName}
+      />
       <funnel.Render
         profileImage={({ context }) => (
           <>
