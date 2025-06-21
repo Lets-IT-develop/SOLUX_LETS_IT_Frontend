@@ -18,6 +18,7 @@ import SignUpPageHeader from './ui/signUpPageHeader/SignUpPageHeader';
 // TODO : 메인 화면으로 이동 클릭 시 홈 화면으로 이동
 const SignUpPage = () => {
   const { funnel, goBackStep, storeData, proceedToNextStep } = useSignupFunnel();
+
   const ageLabels = AGE_OPTIONS.map((option) => option.label);
   const ageDetailLabels = AGE_DETAIL_OPTIONS.map((option) => option.label);
 

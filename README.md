@@ -17,6 +17,7 @@
 
 ## 🛠️ Feat
 - [x] 라우터 설정
+
 ### 🖇️ Signup
 - [x] useFunnel을 통한 step UI 구현 (useSignupFunnel)
 - [x] 값이 비어있는 경우 button disabled 처리
