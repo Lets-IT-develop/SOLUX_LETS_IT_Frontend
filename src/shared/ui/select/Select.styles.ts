@@ -7,21 +7,19 @@ export const SelectContainer = styled.div`
   max-width: 125px;
   cursor: pointer;
   position: relative;
-  z-index: var(--z-index-select);
 `;
 
 export const SelectField = styled.button<{ $isOpen: boolean }>`
   width: 100%;
-  border: 1px solid var(--color-grey);
-  border-radius: 4px;
+  border: ${({ theme }) => theme.colors.gray3};
   padding: 8px;
   box-sizing: border-box;
-  border-radius: 4px;
+  border-radius: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: ${({ $isOpen }) =>
-    $isOpen ? '1px solid var(--color-black)' : '1px solid var(--color-grey)'};
+  border: ${({ $isOpen, theme }) =>
+    $isOpen ? `1px solid ${theme.colors.black}` : `1px solid ${theme.colors.gray3}`};
 `;
 
 export const SelectIcon = styled.img`
@@ -29,34 +27,40 @@ export const SelectIcon = styled.img`
 `;
 
 export const DefaultMessage = styled.p`
-  font-size: var(--font-size-body-regular);
+  ${({ theme }) => ({
+    ...theme.typography.bodyRegular,
+  })};
 `;
 
 export const OptionsContainer = styled.ul`
   width: 100%;
   display: flex;
   flex-direction: column;
-  color: var(--color-dark-grey);
-  border: 1px solid var(--color-dark-grey);
-  border-radius: 4px;
+  color: ${({ theme }) => theme.colors.gray3};
+  border: 1px solid ${({ theme }) => theme.colors.gray3};
+  border-radius: 12px;
   box-sizing: border-box;
   position: absolute;
   top: calc(100% + 4px);
   animation: ${fadeIn} 0.3s ease;
+  cursor: pointer;
 `;
 
 export const OptionItem = styled.li<{ $isFocused: boolean }>`
-  background-color: var(--color-white);
-  font-size: var(--font-size-body);
-  cursor: pointer;
+  background-color: ${({ theme }) => theme.colors.white};
+  ${({ theme }) => ({
+    ...theme.typography.bodyRegular,
+  })};
   padding: 8px;
   box-sizing: border-box;
-  ${({ $isFocused }) =>
+  border-radius: 8px;
+  ${({ $isFocused, theme }) =>
     $isFocused &&
     css`
-      background-color: var(--color-light-grey);
+      color: ${theme.colors.black};
+      background-color: ${theme.colors.gray2};
     `}
-  &:hover {
-    background-color: var(--color-grey);
+  &:active {
+    background-color: ${({ theme }) => theme.colors.gray1};
   }
 `;
