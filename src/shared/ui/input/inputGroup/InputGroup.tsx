@@ -1,5 +1,5 @@
 import * as S from './InputGroup.styles';
-import InputField from '../inputField/InputFIeld';
+import { InputField } from '../index';
 import type { ComponentProps } from 'react';
 
 interface InputGroupProps extends ComponentProps<'input'> {
