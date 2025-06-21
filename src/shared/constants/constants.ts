@@ -1,10 +1,3 @@
-export const CONSTRAINTS = {
-  nickName: {
-    minLength: 1,
-    maxLength: 10,
-  },
-};
-
 export const AGE_OPTIONS = [
   { value: '10', label: '10대' },
   { value: '20', label: '20대' },

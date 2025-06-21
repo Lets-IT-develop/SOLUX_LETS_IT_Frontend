@@ -7,13 +7,12 @@ import { InputGroup } from '../../shared/ui/input';
 import {
   AGE_DETAIL_OPTIONS,
   AGE_OPTIONS,
-  CONSTRAINTS,
   INTEREST_OPTIONS,
 } from '../../shared/constants/constants';
+import { CONSTRAINTS } from '../../shared/constants/constraints';
 import { Select } from '../../shared/ui/select';
 import { toggleSetData } from '../../shared/lib/utils/toggleSetData';
 
-// TODO : 버튼 접근 not allowed 설정
 // TODO : 실명 인증 아이콘 추가 (디자인 완성 시)
 // TODO : 실명 인증 기능 추가
 // TODO : 메인 화면으로 이동 클릭 시 홈 화면으로 이동
@@ -46,25 +45,38 @@ const LoginPage = () => {
               value={context.nickName}
               placeholder={`${CONSTRAINTS.nickName.maxLength}자 이하로 입력해주세요`}
               onChange={(e) => storeData('nickName', e.target.value)}
+              maxLength={CONSTRAINTS.nickName.maxLength}
             />
-            <TextButton variant="primary" onClick={proceedToNextStep} buttonText="다음으로" />
+            <TextButton
+              variant="primary"
+              onClick={proceedToNextStep}
+              buttonText="다음으로"
+              disabled={!context.nickName || context.nickName.length === 0}
+            />
           </>
         )}
         age={({ context }) => (
           <>
             <S.SelectContainer>
               <Select
+                defaultOption="선택"
                 options={ageLabels}
-                value={context.age ? context.age : ageLabels[0]}
+                value={context.age}
                 onSelectedValueChange={(value) => storeData('age', value)}
               />
               <Select
+                defaultOption="초/중/후"
                 options={ageDetailLabels}
-                value={context.ageDetail ? context.ageDetail : ageDetailLabels[0]}
+                value={context.ageDetail}
                 onSelectedValueChange={(value) => storeData('ageDetail', value)}
               />
             </S.SelectContainer>
-            <TextButton variant="primary" onClick={proceedToNextStep} buttonText="다음으로" />
+            <TextButton
+              variant="primary"
+              onClick={proceedToNextStep}
+              buttonText="다음으로"
+              disabled={!context.age || !context.ageDetail}
+            />
           </>
         )}
         interest={({ context }) => (
@@ -81,7 +93,12 @@ const LoginPage = () => {
                 />
               ))}
             </S.MultiSelectCardContainer>
-            <TextButton variant="primary" onClick={proceedToNextStep} buttonText="다음으로" />
+            <TextButton
+              variant="primary"
+              onClick={proceedToNextStep}
+              buttonText="다음으로"
+              disabled={context.interest.size === 0}
+            />
           </>
         )}
         realNameAuth={() => (
