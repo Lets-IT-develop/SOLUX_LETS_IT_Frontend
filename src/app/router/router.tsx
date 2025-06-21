@@ -1,5 +1,6 @@
-import { Layout } from '../../pages/loginPage/ui';
+import { Layout } from '../../pages/ui';
 import { createBrowserRouter } from 'react-router-dom';
+import { LoginPage } from '../../pages';
 
 export const router = createBrowserRouter([
   {
@@ -8,7 +9,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        // element: <LoginPage />,
+        element: <LoginPage />,
       },
     ],
   },
