@@ -1,44 +1,29 @@
 import { useFunnel, createFunnelSteps } from '@use-funnel/react-router-dom';
 import { SIGNUP_STEPS } from '../../../shared/constants/steps';
 
-// TODO : interest 타입 정의
+// TODO : interest - > set 변경
 export const useSignupFunnel = () => {
   const steps = createFunnelSteps<{
     profileImage?: File;
     nickName: string;
     age: string;
-    interest: string[];
+    interest: Set<string>;
     isAuth: boolean;
   }>()
     .extends(SIGNUP_STEPS)
     .build();
 
-  const funnel = useFunnel<{
-    profileImage: { profileImage?: File };
-    nickName: { profileImage?: File; nickName: string };
-    age: { profileImage?: File; nickName: string; age: string };
-    interest: { profileImage?: File; nickName: string; age: string; interest: string[] };
-    realNameAuth: {
-      profileImage?: File;
-      nickName: string;
-      age: string;
-      interest: string[];
-      isAuth: boolean;
-    };
-    confirm: {
-      profileImage?: File;
-      nickName: string;
-      age: string;
-      interest: string[];
-      isAuth: boolean;
-    };
-  }>({
+  const funnel = useFunnel({
     id: 'login-funnel',
     steps: steps,
     initial: {
       step: 'profileImage',
       context: {
         profileImage: undefined,
+        nickName: '',
+        age: '',
+        interest: new Set<string>(),
+        isAuth: false,
       },
     },
   });
@@ -58,7 +43,9 @@ export const useSignupFunnel = () => {
     funnel.history.push(nextStep);
   };
 
-  const storeData = (key: string, data: File | string | string[] | undefined) => {
+  const storeData = (key: keyof typeof funnel.context, data: File | string | Set<string>) => {
+    if (!data) return;
+
     funnel.history.replace(currentStep, {
       ...funnel.context,
       [key]: data,

@@ -2,14 +2,14 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
 export const MultiSelectCardContainer = styled.button<{ $isFocused: boolean }>`
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 1px solid ${({ theme }) => theme.colors.gray3};
   border-radius: 12px;
   padding: 12px 20px;
-  max-width: 133px;
-  aspect-ratio: 1 / 1;
+  height: 80px;
   &::focus {
     border: 1px solid ${({ theme }) => theme.colors.primary};
     background-color: ${({ theme }) => theme.colors.primary20};
