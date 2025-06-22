@@ -1,3 +1,3 @@
 // Button components
-export * from './iconButton/IconButton';
-export * from './textButton/TextButton';
+export { default as IconButton } from './iconButton/IconButton';
+export { default as TextButton } from './textButton/TextButton';

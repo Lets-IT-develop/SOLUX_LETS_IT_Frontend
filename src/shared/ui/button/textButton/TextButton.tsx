@@ -1,5 +1,5 @@
-import { handleImageError } from '../../../lib';
-import type { TextButtonVariantsTypes } from '../../../types';
+import { handleImageError } from '../../../../shared/lib';
+import type { TextButtonVariantsTypes } from '../../../../shared/types';
 import * as S from './TextButton.styles';
 import type { ComponentProps } from 'react';
 

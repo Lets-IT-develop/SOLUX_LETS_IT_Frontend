@@ -1,4 +1,3 @@
-// Utility functions
-export * from './handleImageError';
-export * from './useOutsideClick';
+export * from './utils';
+export * from './hooks';
 export * from './animations';

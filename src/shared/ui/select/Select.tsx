@@ -1,20 +1,26 @@
 import * as S from './Select.styles';
 import { useRef, useState } from 'react';
-import SelectDownIcon from '../../assets/icons/ic_select.svg';
-import useOutsideClick from '../../lib/useOutsideClick';
+import SelectDownIcon from '../../assets/icons/ic_arrow_down.svg';
+import { useOutsideClick } from '../../lib';
 
-interface SelectProps {
-  options: string[];
-  value: string;
-  handleSelectedValue: (value: string) => void;
+interface SelectProps<T> {
+  defaultOption?: T;
+  options: T[];
+  value: T;
+  onSelectedValueChange: (value: T) => void;
 }
 
-const Select = ({ options, value, handleSelectedValue }: SelectProps) => {
+const Select = <T extends string>({
+  defaultOption,
+  options,
+  value,
+  onSelectedValueChange,
+}: SelectProps<T>) => {
   const [isOpen, setIsOpen] = useState(false);
   const [focusedIndex, setFocusedIndex] = useState(0);
 
-  const handleSelectOption = (option: string) => {
-    handleSelectedValue(option);
+  const handleSelectOption = (option: T) => {
+    onSelectedValueChange(option);
     setIsOpen(false);
   };
 
@@ -49,21 +55,19 @@ const Select = ({ options, value, handleSelectedValue }: SelectProps) => {
     }
   };
 
-  const selectedValue = value.length !== 0 ? value : options[0];
-
   return (
     <S.SelectContainer ref={backgroundRef}>
       <S.SelectField
         aria-haspopup="listbox"
         aria-expanded={isOpen}
         aria-activedescendant={isOpen ? `option-${options[focusedIndex]}` : undefined}
-        aria-label={selectedValue}
+        aria-label={value}
         onClick={() => setIsOpen(!isOpen)}
         $isOpen={isOpen}
         tabIndex={0}
         onKeyDown={handleSelectKeyDown}
       >
-        <S.DefaultMessage>{selectedValue}</S.DefaultMessage>
+        <S.DefaultMessage>{value ? value : defaultOption}</S.DefaultMessage>
         <S.SelectIcon src={SelectDownIcon} alt="옵션 열기" />
       </S.SelectField>
       {isOpen && (
@@ -73,10 +77,8 @@ const Select = ({ options, value, handleSelectedValue }: SelectProps) => {
             <S.OptionItem
               id={`option-${option}`}
               key={option}
-              // biome-ignore lint/a11y/useSemanticElements: to justify role
-              role="option"
               onClick={() => handleSelectOption(option)}
-              aria-selected={option === selectedValue}
+              aria-selected={option === value}
               $isFocused={focusedIndex === index}
             >
               {option}

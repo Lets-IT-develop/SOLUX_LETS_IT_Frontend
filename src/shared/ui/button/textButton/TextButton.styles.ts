@@ -1,6 +1,6 @@
-import { css, type Theme } from "@emotion/react";
-import styled from "@emotion/styled";
-import type { TextButtonVariantsTypes } from "../../../../types/styleVariants";
+import { css, type Theme } from '@emotion/react';
+import styled from '@emotion/styled';
+import type { TextButtonVariantsTypes } from '../../../types';
 
 export const buttonStyles = {
   primary: (theme: Theme) => css`

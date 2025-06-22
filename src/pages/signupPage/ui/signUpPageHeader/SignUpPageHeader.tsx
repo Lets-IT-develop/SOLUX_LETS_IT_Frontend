@@ -1,0 +1,45 @@
+import * as S from './SignUpPageHeader.styles';
+import GoBackIcon from '../../../../shared/assets/icons/ic_arrow_back.svg';
+import { getProgressDegree } from '../../../../shared/lib/utils/getProgressDegree';
+import { SIGNUP_STEPS } from '../../../../shared/constants/steps';
+import {
+  STATIC_SIGNUP_MESSAGES,
+  DYNAMIC_SIGNUP_MESSAGES,
+  HIGHLIGHT_TEXT,
+} from '../../../../shared/constants/messages';
+import { ProgressBar } from '../../../../features/signup/ui';
+import { renderWithHighlight } from '../../../../shared/lib';
+
+interface SignUpPageHeaderProps {
+  goBackStep: () => void;
+  step: (typeof SIGNUP_STEPS)[number];
+  nickname: string;
+}
+
+const SignUpPageHeader = ({ goBackStep, step, nickname }: SignUpPageHeaderProps) => {
+  const getGuideText = () => {
+    if (step === 'age' || step === 'interest') {
+      return DYNAMIC_SIGNUP_MESSAGES[step](nickname);
+    }
+    return STATIC_SIGNUP_MESSAGES[step];
+  };
+
+  const highlightText =
+    step in HIGHLIGHT_TEXT ? HIGHLIGHT_TEXT[step as keyof typeof HIGHLIGHT_TEXT] : '';
+
+  return (
+    <S.SignUpPageHeaderSection>
+      <S.SignUpPageHeaderContainer>
+        <S.GoBackButton onClick={goBackStep}>
+          <img src={GoBackIcon} alt="뒤로 가기" />
+        </S.GoBackButton>
+        <ProgressBar progress={getProgressDegree(step, [...SIGNUP_STEPS])} />
+      </S.SignUpPageHeaderContainer>
+      <S.SignUpPageGuideText>
+        {renderWithHighlight(getGuideText(), highlightText)}
+      </S.SignUpPageGuideText>
+    </S.SignUpPageHeaderSection>
+  );
+};
+
+export default SignUpPageHeader;

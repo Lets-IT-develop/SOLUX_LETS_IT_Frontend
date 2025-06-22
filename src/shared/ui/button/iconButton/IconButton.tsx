@@ -1,4 +1,4 @@
-import { handleImageError } from '../../../lib';
+import { handleImageError } from '../../../../shared/lib';
 import * as S from './IconButton.styles';
 
 interface IconButtonProps {
