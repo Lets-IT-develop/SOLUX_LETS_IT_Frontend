@@ -5,7 +5,7 @@ export const SignUpPageContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  min-height: 80dvh;
+  height: 100dvh;
 `;
 
 export const MultiSelectCardContainer = styled.div`
