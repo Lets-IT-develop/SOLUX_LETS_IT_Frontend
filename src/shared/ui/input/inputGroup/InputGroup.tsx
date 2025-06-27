@@ -1,6 +1,6 @@
 import * as S from './InputGroup.styles';
 import { InputField } from '../index';
-import type { ComponentProps } from 'react';
+import { forwardRef, type ComponentProps } from 'react';
 
 interface InputGroupProps extends ComponentProps<'input'> {
   id: string;
@@ -8,16 +8,21 @@ interface InputGroupProps extends ComponentProps<'input'> {
   helperText?: string;
 }
 
-const InputGroup = ({ id, label, helperText, ...restProps }: InputGroupProps) => {
+const InputGroupComponent = (
+  { id, label, helperText, ...restProps }: InputGroupProps,
+  ref: React.Ref<HTMLInputElement>,
+) => {
   return (
     <S.InputGroupContainer>
       <S.InputGroupLabelContainer>
         <S.InputGroupLabel htmlFor={id}>{label}</S.InputGroupLabel>
         {helperText && <S.InputGroupHelperText>{helperText}</S.InputGroupHelperText>}
       </S.InputGroupLabelContainer>
-      <InputField id={id} {...restProps} />
+      <InputField id={id} ref={ref} {...restProps} />
     </S.InputGroupContainer>
   );
 };
+
+const InputGroup = forwardRef<HTMLInputElement, InputGroupProps>(InputGroupComponent);
 
 export default InputGroup;

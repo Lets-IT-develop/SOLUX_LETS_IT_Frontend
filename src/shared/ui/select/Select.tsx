@@ -1,5 +1,5 @@
 import * as S from './Select.styles';
-import { useRef, useState } from 'react';
+import { forwardRef, useRef, useState } from 'react';
 import SelectDownIcon from '../../assets/icons/ic_arrow_down.svg';
 import { useOutsideClick } from '../../lib';
 
@@ -10,12 +10,10 @@ interface SelectProps<T> {
   onSelectedValueChange: (value: T) => void;
 }
 
-const Select = <T extends string>({
-  defaultOption,
-  options,
-  value,
-  onSelectedValueChange,
-}: SelectProps<T>) => {
+const SelectComponent = <T extends string>(
+  { defaultOption, options, value, onSelectedValueChange }: SelectProps<T>,
+  ref: React.Ref<HTMLButtonElement>,
+) => {
   const [isOpen, setIsOpen] = useState(false);
   const [focusedIndex, setFocusedIndex] = useState(0);
 
@@ -66,6 +64,7 @@ const Select = <T extends string>({
         $isOpen={isOpen}
         tabIndex={0}
         onKeyDown={handleSelectKeyDown}
+        ref={ref}
       >
         <S.DefaultMessage>{value ? value : defaultOption}</S.DefaultMessage>
         <S.SelectIcon src={SelectDownIcon} alt="옵션 열기" />
@@ -89,5 +88,7 @@ const Select = <T extends string>({
     </S.SelectContainer>
   );
 };
+
+const Select = forwardRef<HTMLButtonElement, SelectProps<string>>(SelectComponent);
 
 export default Select;

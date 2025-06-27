@@ -1,24 +1,24 @@
-import * as S from './SignUpPage.styles';
+import { useEffect, useRef } from 'react';
 import { useSignupFunnel } from '../../features/signup';
 import { MultiSelectCard, ProfileImageUploader } from '../../features/signup/ui';
-import { TextButton } from '../../shared/ui/button';
-import { InputGroup } from '../../shared/ui/input';
+import { useCompositionInput } from '../../shared';
 import {
   AGE_DETAIL_OPTIONS,
   AGE_OPTIONS,
   INTEREST_OPTIONS,
 } from '../../shared/constants/constants';
 import { CONSTRAINTS } from '../../shared/constants/constraints';
-import { Select } from '../../shared/ui/select';
 import { toggleSetData } from '../../shared/lib/utils/toggleSetData';
+import { TextButton } from '../../shared/ui/button';
+import { InputGroup } from '../../shared/ui/input';
+import { Select } from '../../shared/ui/select';
+import * as S from './SignUpPage.styles';
 import SignUpPageHeader from './ui/signUpPageHeader/SignUpPageHeader';
-import { useCompositionInput } from '../../shared';
 
 // TODO : 실명 인증 아이콘 추가 (디자인 완성 시)
 // TODO : 실명 인증 기능 추가
 // TODO : 메인 화면으로 이동 클릭 시 홈 화면으로 이동
 // TODO : validation + 에러메세지 toast 추가
-// TODO : 관심사 max 설정
 const SignUpPage = () => {
   const { funnel, goBackStep, storeData, proceedToNextStep } = useSignupFunnel();
 
@@ -28,6 +28,29 @@ const SignUpPage = () => {
 
   const ageLabels = AGE_OPTIONS.map((option) => option.label);
   const ageDetailLabels = AGE_DETAIL_OPTIONS.map((option) => option.label);
+
+  const inputRef = useRef<HTMLInputElement>(null);
+  const selectRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (funnel.step === 'nickName') {
+      requestAnimationFrame(() => {
+        inputRef.current?.focus();
+      });
+    }
+    if (funnel.step === 'age') {
+      requestAnimationFrame(() => {
+        selectRef.current?.focus();
+        selectRef.current?.click();
+      });
+    }
+  }, [funnel.step]);
+
+  const handleKeydown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      proceedToNextStep();
+    }
+  };
 
   return (
     <S.SignUpPageContainer>
@@ -57,6 +80,8 @@ const SignUpPage = () => {
               value={nickName.value}
               placeholder={`${CONSTRAINTS.nickName.maxLength}자 이하로 입력해주세요`}
               maxLength={CONSTRAINTS.nickName.maxLength}
+              ref={inputRef}
+              onKeyDown={handleKeydown}
               {...nickName.handlers}
             />
             <TextButton
@@ -75,6 +100,7 @@ const SignUpPage = () => {
                 options={ageLabels}
                 value={context.age}
                 onSelectedValueChange={(value) => storeData('age', value)}
+                ref={selectRef}
               />
               <Select
                 defaultOption="초/중/후"
