@@ -16,6 +16,8 @@ import SignUpPageHeader from './ui/signUpPageHeader/SignUpPageHeader';
 // TODO : 실명 인증 아이콘 추가 (디자인 완성 시)
 // TODO : 실명 인증 기능 추가
 // TODO : 메인 화면으로 이동 클릭 시 홈 화면으로 이동
+// TODO : validation + 에러메세지 toast 추가
+// TODO : 관심사 max 설정
 const SignUpPage = () => {
   const { funnel, goBackStep, storeData, proceedToNextStep } = useSignupFunnel();
 
@@ -94,6 +96,10 @@ const SignUpPage = () => {
                   isFocused={context.interest.has(option.value)}
                   toggleFocus={() =>
                     storeData('interest', toggleSetData(context.interest, option.value))
+                  }
+                  disabled={
+                    context.interest.size >= CONSTRAINTS.interest.max &&
+                    !context.interest.has(option.value)
                   }
                 />
               ))}

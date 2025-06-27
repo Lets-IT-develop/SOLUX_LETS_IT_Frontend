@@ -7,6 +7,9 @@ export const globalCss = (theme: Theme) => css`
    src: url('/fonts/SUIT-Variable.woff2') format('woff2');
    font-display: swap;
  }
+ *{
+  font-family: inherit;
+ }
  body{ 
   font-family: 'SUIT', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
  }
@@ -15,6 +18,11 @@ export const globalCss = (theme: Theme) => css`
       outline: 1px solid ${theme.colors.primary};
     }
   }
-
+  input,
+  button,
+  textarea,
+  select {
+    font-family: inherit; 
+  }
 
 `;
