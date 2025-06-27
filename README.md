@@ -4,20 +4,8 @@
 - [x] safari에서 button 태그의 기본 color가 blue 인 문제 해결
 - [x] fallback 폰트 설정 (기존 폰트가 존재하지 않은 경우 fallback 폰트로 렌더링)
 - [x] 화면 높이 100dvh 로 수정 및 불필요한 border 제거
-- [ ] input / select 초기 focus 구현
+- [x] input / select 초기 focus 구현
 
 ### ⚠️ Fix
 - [x] input 깨지는 문제 해결
 - [x] max 개수 이상으로 클릭할 수 없게끔 button disabled 처리
-
-### ⚠️ validation 구현
-- [ ] ErrorToast 구현
-- [ ] max 개수 이상으로 클릭할 경우 / input이 비어있는 경우 에러메세지 및 선택 해제
-- [ ] 닉네임에 공백이 있을 경우 이를 제한 및 자동 trim 처리
-- [ ] select 값이 비어있을 경우 에러 처리
-
-
-### ✅ Feat
-- [ ] 알람 팝업 컴포넌트 제작
-- [ ] 프로젝트 component 제작
-- [ ] 홈화면 제작
