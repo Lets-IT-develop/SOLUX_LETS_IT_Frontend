@@ -20,6 +20,9 @@ export const globalCss = (theme: Theme) => css`
   }
   button {
     color: ${theme.colors.black}; 
+    &:focus-visible{
+      outline: 2px solid ${theme.colors.error};
+    }
   }
   input,
   button,

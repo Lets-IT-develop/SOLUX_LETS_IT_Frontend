@@ -1,4 +1,5 @@
 import ProjectCard from '../../features/project/ui/ProjectCard';
+import FloatButton from '../../shared/ui/button/floatButton/FloatButton';
 import * as S from './MainPage.styles';
 import MainPageHeader from './ui/MainPageHeader';
 
@@ -14,6 +15,7 @@ const MainPage = () => {
           { label: '진행상태', value: '진행중' },
         ]}
       />
+      <FloatButton buttonText="hi" />
     </S.MainPageContainer>
   );
 };
