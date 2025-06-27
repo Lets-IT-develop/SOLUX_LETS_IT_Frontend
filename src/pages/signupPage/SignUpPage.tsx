@@ -12,6 +12,7 @@ import { CONSTRAINTS } from '../../shared/constants/constraints';
 import { Select } from '../../shared/ui/select';
 import { toggleSetData } from '../../shared/lib/utils/toggleSetData';
 import SignUpPageHeader from './ui/signUpPageHeader/SignUpPageHeader';
+import { useCompositionInput } from '../../shared';
 
 // TODO : 실명 인증 아이콘 추가 (디자인 완성 시)
 // TODO : 실명 인증 기능 추가
@@ -20,6 +21,10 @@ import SignUpPageHeader from './ui/signUpPageHeader/SignUpPageHeader';
 // TODO : 관심사 max 설정
 const SignUpPage = () => {
   const { funnel, goBackStep, storeData, proceedToNextStep } = useSignupFunnel();
+
+  const nickName = useCompositionInput({
+    initialValue: funnel.context.nickName,
+  });
 
   const ageLabels = AGE_OPTIONS.map((option) => option.label);
   const ageDetailLabels = AGE_DETAIL_OPTIONS.map((option) => option.label);
@@ -45,20 +50,20 @@ const SignUpPage = () => {
             />
           </>
         )}
-        nickName={({ context }) => (
+        nickName={() => (
           <>
             <InputGroup
               id="nickName"
-              value={context.nickName}
+              value={nickName.value}
               placeholder={`${CONSTRAINTS.nickName.maxLength}자 이하로 입력해주세요`}
-              onChange={(e) => storeData('nickName', e.target.value)}
               maxLength={CONSTRAINTS.nickName.maxLength}
+              {...nickName.handlers}
             />
             <TextButton
               variant="primary"
               onClick={proceedToNextStep}
               buttonText="다음으로"
-              disabled={!context.nickName || context.nickName.length === 0}
+              disabled={!nickName.value || nickName.value.length === 0}
             />
           </>
         )}
