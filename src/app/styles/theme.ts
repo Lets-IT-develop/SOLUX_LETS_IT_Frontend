@@ -81,4 +81,7 @@ export const theme = {
       lineHeight: '140%',
     },
   },
+  spacing: {
+    pagePadding: '20px',
+  },
 };

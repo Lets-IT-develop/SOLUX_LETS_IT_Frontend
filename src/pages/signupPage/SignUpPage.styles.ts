@@ -1,12 +1,12 @@
 import styled from '@emotion/styled';
 
-export const SignUpPageContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  height: 100dvh;
-`;
+export const SignUpPageContainer = styled.div(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  height: `calc(100dvh - ${theme.spacing.pagePadding}*2)`, 
+}));
 
 export const MultiSelectCardContainer = styled.div`
   width: 100%;
