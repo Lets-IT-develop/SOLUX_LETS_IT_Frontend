@@ -1,3 +1,5 @@
+import { CONSTRAINTS } from './constraints';
+
 export const HIGHLIGHT_MARK = '{{highlight}}';
 
 export const STATIC_SIGNUP_MESSAGES = {
@@ -9,7 +11,8 @@ export const STATIC_SIGNUP_MESSAGES = {
 
 export const DYNAMIC_SIGNUP_MESSAGES = {
   age: (nickname: string) => `🔎 ${nickname} 님의 ${HIGHLIGHT_MARK}를 알려주세요.`,
-  interest: (nickname: string) => `🔎 ${nickname} 님의 ${HIGHLIGHT_MARK}를 전부 선택해 주세요.`,
+  interest: (nickname: string) =>
+    `🔎 ${nickname} 님의 ${HIGHLIGHT_MARK}를 전부 선택해 주세요. (최대 ${CONSTRAINTS.interest.max}개)`,
 };
 
 export const HIGHLIGHT_TEXT = {

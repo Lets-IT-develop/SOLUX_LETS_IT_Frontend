@@ -10,10 +10,17 @@ export const MultiSelectCardContainer = styled.button<{ $isFocused: boolean }>`
   border-radius: 12px;
   padding: 12px 20px;
   height: 80px;
+  color: ${({ theme }) => theme.colors.black};
   &::focus {
     border: 1px solid ${({ theme }) => theme.colors.primary};
     background-color: ${({ theme }) => theme.colors.primary20};
     color: ${({ theme }) => theme.colors.primary};
+  }
+  &:disabled{
+    cursor: not-allowed;
+    background-color: ${({ theme }) => theme.colors.gray2};
+    color: ${({ theme }) => theme.colors.gray3};
+    border: none;
   }
   ${({ $isFocused, theme }) =>
     $isFocused &&

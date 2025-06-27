@@ -45,8 +45,6 @@ export const useSignupFunnel = () => {
   };
 
   const storeData = (key: keyof typeof funnel.context, data: File | string | Set<string>) => {
-    if (!data) return;
-
     funnel.history.replace(currentStep, {
       ...funnel.context,
       [key]: data,

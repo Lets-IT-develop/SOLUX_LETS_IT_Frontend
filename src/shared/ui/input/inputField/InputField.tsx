@@ -1,12 +1,17 @@
-import type { ComponentProps } from 'react';
+import { forwardRef, type ComponentProps } from 'react';
 import * as S from './InputField.styles';
 
 interface InputFieldProps extends ComponentProps<'input'> {
   id: string;
 }
 
-const InputField = ({ id, ...restProps }: InputFieldProps) => {
-  return <S.InputField id={id} {...restProps} />;
+const InputFieldComponents = (
+  { id, ...restProps }: InputFieldProps,
+  ref: React.Ref<HTMLInputElement>,
+) => {
+  return <S.InputField id={id} ref={ref} {...restProps} />;
 };
+
+const InputField = forwardRef<HTMLInputElement, InputFieldProps>(InputFieldComponents);
 
 export default InputField;

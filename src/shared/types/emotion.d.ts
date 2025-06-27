@@ -1,6 +1,6 @@
-import "@emotion/react";
+import '@emotion/react';
 
-declare module "@emotion/react" {
+declare module '@emotion/react' {
   export interface Theme {
     colors: {
       white: string;
@@ -46,6 +46,9 @@ declare module "@emotion/react" {
       buttonSecondary: TypographyStyle;
       buttonTertiary: TypographyStyle;
       labelInput: TypographyStyle;
+    };
+    spacing: {
+      pagePadding: string;
     };
   }
 
