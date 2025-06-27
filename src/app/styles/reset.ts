@@ -126,5 +126,6 @@ export const reset = css`
     background: none;
     border: none;
     cursor: pointer;
+    padding: 0;
   }
 `;
