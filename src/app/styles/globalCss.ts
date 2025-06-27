@@ -18,6 +18,9 @@ export const globalCss = (theme: Theme) => css`
       outline: 1px solid ${theme.colors.primary};
     }
   }
+  button {
+    color: ${theme.colors.black}; 
+  }
   input,
   button,
   textarea,
