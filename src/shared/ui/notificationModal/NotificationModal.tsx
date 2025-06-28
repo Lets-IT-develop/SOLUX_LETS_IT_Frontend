@@ -1,5 +1,4 @@
 import * as S from './NotificationModal.styles';
-import { useOutsideClick } from '../../lib';
 import { useRef } from 'react';
 import CloseIcon from '../../assets/icons/ic_close.svg';
 
@@ -10,11 +9,18 @@ interface NotificationModalProps {
 }
 
 const NotificationModal = ({ title, children, onClose }: NotificationModalProps) => {
+  // TODO : isOpen localStorage 연결
   const ref = useRef<HTMLDivElement>(null);
-  useOutsideClick(ref, onClose);
 
   return (
-    <S.NotificationModalContainer ref={ref}>
+    <S.NotificationModalContainer
+      ref={ref}
+      layout
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.4, ease: 'easeOut' }}
+    >
       <S.NotificationModalHeader>
         {title ? <S.NotificationModalTitle>{title}</S.NotificationModalTitle> : null}
         <S.NotificationModalCloseButton onClick={onClose}>

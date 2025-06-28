@@ -34,6 +34,8 @@ const ProjectsPage = () => {
   };
 
   const { isOpen, handleOpen, handleClose } = useModal();
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies : 초기에만 렌더링
   useEffect(() => {
     // TODO : 백엔드 연동 - 알람이 있을 경우 handleOpen 작동 및 데이터 전달
     handleOpen();
@@ -43,7 +45,7 @@ const ProjectsPage = () => {
   return (
     <>
       {isOpen && (
-        <NotificationModal title="프로젝트 지원서 도착 안내" onClose={handleClose}>
+        <NotificationModal title="프로젝트 지원서 도착 안내" isOpen={isOpen} onClose={handleClose}>
           {mockAlertProjectName && (
             <ApplicationNotification
               projectName={mockAlertProjectName}
