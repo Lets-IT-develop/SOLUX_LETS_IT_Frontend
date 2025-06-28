@@ -39,6 +39,7 @@ declare module '@emotion/react' {
     typography: {
       heading1: TypographyStyle;
       heading2: TypographyStyle;
+      heading3: TypographyStyle;
       bodyLarge: TypographyStyle;
       bodyRegular: TypographyStyle;
       captionSmall: TypographyStyle;
