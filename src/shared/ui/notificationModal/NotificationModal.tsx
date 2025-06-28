@@ -9,7 +9,6 @@ interface NotificationModalProps {
 }
 
 const NotificationModal = ({ title, children, onClose }: NotificationModalProps) => {
-  // TODO : isOpen localStorage 연결
   const ref = useRef<HTMLDivElement>(null);
 
   return (
