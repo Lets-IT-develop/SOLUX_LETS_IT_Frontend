@@ -5,6 +5,8 @@ import { ApplicationNotification } from '../../shared';
 import { ProjectCard } from '../../features';
 import { MainPageHeader } from './ui';
 import { z } from 'zod';
+import { useModal } from '../../shared';
+import { useEffect } from 'react';
 
 const MainPage = () => {
   // TODO : 백엔드 데이터 하단 형태로 변경
@@ -28,19 +30,26 @@ const MainPage = () => {
     interests: ['개발자', '디자이너'],
   };
 
+  const { isOpen, handleOpen, handleClose } = useModal();
+  useEffect(() => {
+    // TODO : 백엔드 연동 - 알람이 있을 경우 handleOpen 작동 및 데이터 전달
+    handleOpen();
+  }, []);
   // TODO : profileId를 받은 후 navigate 연결 (ROUTES.home 변경)
   return (
     <S.MainPageContainer>
       <MainPageHeader />
-      <NotificationModal title="프로젝트 지원서 도착 안내" onClose={() => {}}>
-        {mockAlertProjectName && (
-          <ApplicationNotification
-            projectName={mockAlertProjectName}
-            profile={mockProfile}
-            profileUrl={ROUTES.home}
-          />
-        )}
-      </NotificationModal>
+      {isOpen && (
+        <NotificationModal title="프로젝트 지원서 도착 안내" onClose={handleClose}>
+          {mockAlertProjectName && (
+            <ApplicationNotification
+              projectName={mockAlertProjectName}
+              profile={mockProfile}
+              profileUrl={ROUTES.home}
+            />
+          )}
+        </NotificationModal>
+      )}
       <ProjectCard title="타이틀입니다" info={mockProjectInfo} />
       <FloatButton buttonText="글쓰기" iconSrc={PenIcon} />
     </S.MainPageContainer>
