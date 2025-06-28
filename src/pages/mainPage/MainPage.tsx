@@ -3,11 +3,15 @@ import FloatButton from '../../shared/ui/button/floatButton/FloatButton';
 import * as S from './MainPage.styles';
 import MainPageHeader from './ui/MainPageHeader';
 import PenIcon from '../../shared/assets/icons/ic_pen.svg';
+import NotificationModal from '../../shared/ui/notificationModal/NotificationModal';
 
 const MainPage = () => {
   return (
     <S.MainPageContainer>
       <MainPageHeader />
+      <NotificationModal title="프로젝트 지원서 도착 안내" onClose={() => {}}>
+        <h2>hi</h2>
+      </NotificationModal>
       <ProjectCard
         title="타이틀입니다"
         info={[
