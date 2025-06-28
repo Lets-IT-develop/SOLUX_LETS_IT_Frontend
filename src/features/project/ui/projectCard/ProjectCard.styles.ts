@@ -8,6 +8,7 @@ export const ProjectCardContainer = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.gray3};
   border-radius: 12px;
   cursor: pointer;
+  flex-shrink: 0;
 `
 
 export const ProjectCardTitle = styled.span`

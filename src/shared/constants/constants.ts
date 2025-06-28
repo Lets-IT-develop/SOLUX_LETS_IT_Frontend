@@ -35,3 +35,9 @@ export const INTEREST_LABELS = [
   'AI 엔지니어',
   'ML 엔지니어',
 ] as const;
+
+export const PROJECT_CARD_LABEL = {
+  category: '카테고리',
+  stacks: '필요스택',
+  period: '예상기간',
+} as const;

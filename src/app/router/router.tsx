@@ -1,5 +1,5 @@
 import { Layout } from '../../pages/ui';
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { SignUpPage } from '../../pages';
 import { MainPage } from '../../pages';
 import ProjectsPage from '../../pages/projectsPage/ProjectsPage';
@@ -14,6 +14,10 @@ export const router = createBrowserRouter([
         path: '/',
         element: <MainPage />,
         children: [
+          {
+            path: '',
+            element: <Navigate to="/projects" replace />,
+          },
           {
             path: '/projects',
             element: <ProjectsPage />,
