@@ -1,4 +1,3 @@
-import { ProjectCard } from '../../features';
 import * as S from './ProjectsPage.styles';
 import {
   ApplicationNotification,
