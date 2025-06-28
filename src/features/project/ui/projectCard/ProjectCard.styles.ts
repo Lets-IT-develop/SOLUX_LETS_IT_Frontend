@@ -10,6 +10,7 @@ export const ProjectCardContainer = styled.div`
   border-radius: 12px;
   cursor: pointer;
   flex-shrink: 0;
+  z-index: ${({ theme }) => theme.zIndex.default};
 `
 
 export const ProjectCardTitle = styled.span`

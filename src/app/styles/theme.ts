@@ -90,6 +90,8 @@ export const theme = {
     pagePadding: '20px',
   },
   zIndex: {
-    floatButton: 2,
+    default: 1,
+    floatButton: 100,
+    layoutScrollShadow: 50,
   },
 };

@@ -52,7 +52,9 @@ declare module '@emotion/react' {
       pagePadding: string;
     };
     zIndex: {
+      default: number;
       floatButton: number;
+      layoutScrollShadow: number;
     };
   }
 
