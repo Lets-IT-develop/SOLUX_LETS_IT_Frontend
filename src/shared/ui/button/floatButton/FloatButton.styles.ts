@@ -8,8 +8,8 @@ export const FloatButtonContainer = styled.button<{$position?: PositionProps}>`
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 143px;
-  padding: 13px 50px;
+  gap: 4px;
+  padding: 13px 40px;
   ${({ theme }) => ({...theme.typography.buttonPrimary})};
   color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.colors.primary};

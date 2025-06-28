@@ -2,6 +2,7 @@ import ProjectCard from '../../features/project/ui/ProjectCard';
 import FloatButton from '../../shared/ui/button/floatButton/FloatButton';
 import * as S from './MainPage.styles';
 import MainPageHeader from './ui/MainPageHeader';
+import PenIcon from '../../shared/assets/icons/ic_pen.svg';
 
 const MainPage = () => {
   return (
@@ -15,7 +16,7 @@ const MainPage = () => {
           { label: '진행상태', value: '진행중' },
         ]}
       />
-      <FloatButton buttonText="hi" />
+      <FloatButton buttonText="글쓰기" iconSrc={PenIcon} />
     </S.MainPageContainer>
   );
 };
