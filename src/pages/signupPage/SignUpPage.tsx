@@ -1,8 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { ProfileImageUploader, useSignupFunnel } from '../../features';
 import { MultiSelectCard } from '../../features';
-import { AGE_OPTIONS, INTEREST_OPTIONS, useCompositionInput } from '../../shared';
-import { AGE_DETAIL_OPTIONS } from '../../shared';
+import { AGE_DETAIL_LABELS, AGE_LABELS, INTEREST_OPTIONS, useCompositionInput } from '../../shared';
 import { CONSTRAINTS } from '../../shared';
 import { toggleSetData } from '../../shared';
 import { TextButton } from '../../shared';
@@ -23,9 +22,6 @@ const SignUpPage = () => {
     initialValue: funnel.context.nickName,
     onStore: (value: string) => storeData('nickName', value),
   });
-
-  const ageLabels = AGE_OPTIONS.map((option) => option.label);
-  const ageDetailLabels = AGE_DETAIL_OPTIONS.map((option) => option.label);
 
   const inputRef = useRef<HTMLInputElement>(null);
   const selectRef = useRef<HTMLButtonElement>(null);
@@ -98,14 +94,14 @@ const SignUpPage = () => {
             <S.SelectContainer>
               <Select
                 defaultOption="선택"
-                options={ageLabels}
+                options={[...AGE_LABELS]}
                 value={context.age}
                 onSelectedValueChange={(value) => storeData('age', value)}
                 ref={selectRef}
               />
               <Select
                 defaultOption="초/중/후"
-                options={ageDetailLabels}
+                options={[...AGE_DETAIL_LABELS]}
                 value={context.ageDetail}
                 onSelectedValueChange={(value) => storeData('ageDetail', value)}
               />
