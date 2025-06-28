@@ -1,21 +1,17 @@
 import { useEffect, useRef } from 'react';
-import { useSignupFunnel } from '../../features/signup';
-import { MultiSelectCard, ProfileImageUploader } from '../../features/signup/ui';
-import { useCompositionInput } from '../../shared';
-import {
-  AGE_DETAIL_OPTIONS,
-  AGE_OPTIONS,
-  INTEREST_OPTIONS,
-} from '../../shared/constants/constants';
-import { CONSTRAINTS } from '../../shared/constants/constraints';
-import { toggleSetData } from '../../shared/lib/utils/toggleSetData';
-import { TextButton } from '../../shared/ui/button';
-import { InputGroup } from '../../shared/ui/input';
-import { Select } from '../../shared/ui/select';
+import { ProfileImageUploader, useSignupFunnel } from '../../features';
+import { MultiSelectCard } from '../../features';
+import { AGE_OPTIONS, INTEREST_OPTIONS, useCompositionInput } from '../../shared';
+import { AGE_DETAIL_OPTIONS } from '../../shared';
+import { CONSTRAINTS } from '../../shared';
+import { toggleSetData } from '../../shared';
+import { TextButton } from '../../shared';
+import { InputGroup } from '../../shared';
+import { Select } from '../../shared';
 import * as S from './SignUpPage.styles';
-import SignUpPageHeader from './ui/signUpPageHeader/SignUpPageHeader';
+import { SignUpPageHeader } from './ui';
 import { useNavigate } from 'react-router-dom';
-import { ROUTES } from '../../shared/constants/routes';
+import { ROUTES } from '../../shared';
 
 // TODO : 실명 인증 아이콘 추가 (디자인 완성 시)
 // TODO : 실명 인증 기능 추가

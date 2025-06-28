@@ -1,1 +1,2 @@
-export * from './NotificationModal';
+export { default as NotificationModal } from './NotificationModal.tsx';
+export * from './content';

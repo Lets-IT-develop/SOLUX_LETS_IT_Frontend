@@ -1,7 +1,7 @@
 import { Layout } from '../../pages/ui';
 import { createBrowserRouter } from 'react-router-dom';
 import { SignUpPage } from '../../pages';
-import MainPage from '../../pages/mainPage/MainPage';
+import { MainPage } from '../../pages';
 
 export const router = createBrowserRouter([
   {

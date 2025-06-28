@@ -1,10 +1,9 @@
-import ProjectCard from '../../features/project/ui/ProjectCard';
-import FloatButton from '../../shared/ui/button/floatButton/FloatButton';
-import * as S from './MainPage.styles';
-import MainPageHeader from './ui/MainPageHeader';
 import PenIcon from '../../shared/assets/icons/ic_pen.svg';
-import NotificationModal from '../../shared/ui/notificationModal/NotificationModal';
-import ApplicationNotification from '../../shared/ui/notificationModal/content/applicationNotification/ApplicationNotification';
+import * as S from './MainPage.styles';
+import { FloatButton, NotificationModal } from '../../shared';
+import { ApplicationNotification } from '../../shared';
+import { ProjectCard } from '../../features';
+import { MainPageHeader } from './ui';
 
 // TODO : 백엔드 데이터 하단 형태로 변경
 const mockProjectInfo = [
