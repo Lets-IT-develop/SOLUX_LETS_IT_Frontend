@@ -87,6 +87,11 @@ const ProjectsPage = () => {
         <Title titleText="이런 프로젝트는 어떠신가요? 💫" />
         <ProjectCardList projects={mockProjectInfo} />
       </S.ContentContainer>
+
+      <S.ContentContainer>
+        <Title titleText="지금 인기있는 프로젝트 🔥" />
+        <ProjectCardList projects={mockProjectInfo} />
+      </S.ContentContainer>
       <FloatButton buttonText="글쓰기" iconSrc={PenIcon} />
     </>
   );

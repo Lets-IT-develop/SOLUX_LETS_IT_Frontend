@@ -6,6 +6,7 @@ export const ProjectCardContainer = styled.div`
   gap: 20px;
   padding: 14px 18px;
   border: 1px solid ${({ theme }) => theme.colors.gray3};
+  background-color: ${({ theme }) => theme.colors.white};
   border-radius: 12px;
   cursor: pointer;
   flex-shrink: 0;

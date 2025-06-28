@@ -51,6 +51,9 @@ declare module '@emotion/react' {
     spacing: {
       pagePadding: string;
     };
+    zIndex: {
+      floatButton: number;
+    };
   }
 
   interface TypographyStyle {

@@ -89,4 +89,7 @@ export const theme = {
   spacing: {
     pagePadding: '20px',
   },
+  zIndex: {
+    floatButton: 2,
+  },
 };

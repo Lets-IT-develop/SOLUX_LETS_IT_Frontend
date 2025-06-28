@@ -19,6 +19,7 @@ export const FloatButtonContainer = styled.button<{$position?: PositionProps}>`
   left: 50%;
   transform: translateX(-50%);
   box-shadow: 1px 1px 3px 0px #7EA3FF inset, 0px 2px 10px 0px rgba(0, 0, 0, 0.25);
+  z-index: ${({ theme }) => theme.zIndex.floatButton};
   &:active{
     box-shadow :  1px 1px 3px 0px #7EA3FF inset, inset 0px 2px 10px 0px rgba(0, 0, 0, 0.25);
   }
