@@ -3,9 +3,11 @@ import Logo from '../../../shared/assets/logo/logo.svg';
 import SearchIcon from '../../../shared/assets/icons/ic_search.svg';
 import AlarmIcon from '../../../shared/assets/icons/ic_alarm.svg';
 import MenuIcon from '../../../shared/assets/icons/ic_menu.svg';
-import { ToggleSwitch } from '../../../shared';
+import { ROUTES, ToggleSwitch } from '../../../shared';
+import { useNavigate } from 'react-router-dom';
 
 const MainPageHeader = () => {
+  const navigate = useNavigate();
   return (
     <S.MainPageHeaderContainer>
       <S.MainPageHeaderTop>
@@ -26,8 +28,8 @@ const MainPageHeader = () => {
       </S.MainPageHeaderTop>
       <ToggleSwitch
         tabContent={[
-          { label: '프로젝트 찾기', onClick: () => {} },
-          { label: '맞춤 회원 찾기', onClick: () => {} },
+          { label: '프로젝트 찾기', onClick: () => navigate(ROUTES.projects) },
+          { label: '맞춤 회원 찾기', onClick: () => navigate(ROUTES.members) },
         ]}
       />
     </S.MainPageHeaderContainer>

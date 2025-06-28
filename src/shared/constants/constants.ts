@@ -15,7 +15,6 @@ export const AGE_DETAIL_OPTIONS: { value: string; label: (typeof AGE_DETAIL_LABE
 export const AGE_DETAIL_LABELS = ['초반', '중반', '후반'] as const;
 
 // TODO : value값 백엔드에 맞추어 변경
-
 export const INTEREST_OPTIONS: { value: string; label: (typeof INTEREST_LABELS)[number] }[] = [
   { value: '1', label: '기획자' },
   { value: '2', label: '개발자' },
