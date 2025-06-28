@@ -27,6 +27,7 @@ const ApplicationNotification = ({
   );
   const navigate = useNavigate();
 
+  // TODO : 알람 확인 여부 토글 (백엔드)
   return (
     <>
       <S.Message>{message}</S.Message>
