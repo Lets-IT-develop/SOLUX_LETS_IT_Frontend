@@ -14,16 +14,18 @@ import { InputGroup } from '../../shared/ui/input';
 import { Select } from '../../shared/ui/select';
 import * as S from './SignUpPage.styles';
 import SignUpPageHeader from './ui/signUpPageHeader/SignUpPageHeader';
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../../shared/constants/routes';
 
 // TODO : 실명 인증 아이콘 추가 (디자인 완성 시)
 // TODO : 실명 인증 기능 추가
-// TODO : 메인 화면으로 이동 클릭 시 홈 화면으로 이동
 // TODO : validation + 에러메세지 toast 추가
 const SignUpPage = () => {
   const { funnel, goBackStep, storeData, proceedToNextStep } = useSignupFunnel();
 
   const nickName = useCompositionInput({
     initialValue: funnel.context.nickName,
+    onStore: (value: string) => storeData('nickName', value),
   });
 
   const ageLabels = AGE_OPTIONS.map((option) => option.label);
@@ -31,6 +33,8 @@ const SignUpPage = () => {
 
   const inputRef = useRef<HTMLInputElement>(null);
   const selectRef = useRef<HTMLButtonElement>(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (funnel.step === 'nickName') {
@@ -47,6 +51,7 @@ const SignUpPage = () => {
   }, [funnel.step]);
 
   const handleKeydown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    // TODO : 각 step 별 유효 조건 따로 관리 후 막기
     if (e.key === 'Enter') {
       proceedToNextStep();
     }
@@ -164,7 +169,7 @@ const SignUpPage = () => {
           <>
             <TextButton
               variant="primary"
-              onClick={proceedToNextStep}
+              onClick={() => navigate(ROUTES.home)}
               buttonText="Let's IT 시작하기"
             />
           </>
