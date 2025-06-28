@@ -9,7 +9,7 @@
 ### ⚠️ Fix
 - [x] input 깨지는 문제 해결
 - [x] max 개수 이상으로 클릭할 수 없게끔 button disabled 처리
-- [] sign-up 상단 guideMessage에 닉네임이 안뜨는 문제 해결 
+- [x] sign-up 상단 guideMessage에 닉네임이 안뜨는 문제 해결 
 
 ### ✅ Feat
 - [ ] 알람 팝업 컴포넌트 제작

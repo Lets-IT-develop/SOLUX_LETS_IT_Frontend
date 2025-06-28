@@ -20,8 +20,8 @@ export const SIGN_UP_HIGHLIGHT_TEXT = {
   interest: ['관심사'],
 } as const;
 
-export const STATIC_NOTIFICATION_MESSAGES = {
-  application: `${HIGHLIGHT_MARK} 프로젝트에 관해 새로운 지원서가 도착했어요.`,
+export const NOTIFICATION_MESSAGES = {
+  application: () => `${HIGHLIGHT_MARK} 프로젝트에 관해 새로운 지원서가 도착했어요.`,
 };
 
 export const NOTIFICATION_HIGHLIGHT_TEXT = {
