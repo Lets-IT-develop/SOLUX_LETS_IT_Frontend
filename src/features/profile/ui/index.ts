@@ -1,1 +1,1 @@
-export { default as ProfilePage } from './profilePreview/ProfilePreview.tsx';
+export { default as ProfilePreview } from './profilePreview/ProfilePreview.tsx';

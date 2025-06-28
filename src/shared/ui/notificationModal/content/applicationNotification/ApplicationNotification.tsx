@@ -1,17 +1,39 @@
+import { useNavigate } from 'react-router-dom';
+import { ProfilePreview } from '../../../../../features';
 import { NOTIFICATION_HIGHLIGHT_TEXT, NOTIFICATION_MESSAGES } from '../../../../constants';
 import { renderWithHighlight } from '../../../../lib';
+import type { InterestType } from '../../../../types/types';
 import * as S from './ApplicationNotification.styles';
+import { TextButton } from '../../../button';
 
 interface ApplicationNotificationProps {
   projectName: string;
+  profile: {
+    imageUrl?: string;
+    name: string;
+    interests: InterestType[];
+  };
+  profileUrl: string;
 }
 
-const ApplicationNotification = ({ projectName }: ApplicationNotificationProps) => {
+const ApplicationNotification = ({
+  projectName,
+  profile,
+  profileUrl,
+}: ApplicationNotificationProps) => {
   const message = renderWithHighlight(
     NOTIFICATION_MESSAGES.application(),
     NOTIFICATION_HIGHLIGHT_TEXT.application(projectName),
   );
-  return <S.Message>{message}</S.Message>;
+  const navigate = useNavigate();
+
+  return (
+    <>
+      <S.Message>{message}</S.Message>
+      <ProfilePreview {...profile} />
+      <TextButton variant="primary" buttonText="지원서 보기" onClick={() => navigate(profileUrl)} />
+    </>
+  );
 };
 
 export default ApplicationNotification;

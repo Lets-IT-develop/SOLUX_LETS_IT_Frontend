@@ -1,6 +1,7 @@
 import type { ComponentProps } from 'react';
 import * as S from './FloatButton.styles';
 import { handleImageError } from '../../../lib';
+import fallbackIcon from '../../../assets/icons/ic_fallback.svg';
 
 interface FloatButtonProps extends ComponentProps<'button'> {
   buttonText: string;
@@ -12,7 +13,9 @@ const FloatButton = ({ buttonText, position, iconSrc, ...buttonProps }: FloatBut
   return (
     <S.FloatButtonContainer $position={position} {...buttonProps}>
       {buttonText}
-      {iconSrc ? <img src={iconSrc} alt="icon" onError={handleImageError} /> : null}
+      {iconSrc ? (
+        <img src={iconSrc} alt="icon" onError={(e) => handleImageError(e, fallbackIcon)} />
+      ) : null}
     </S.FloatButtonContainer>
   );
 };
