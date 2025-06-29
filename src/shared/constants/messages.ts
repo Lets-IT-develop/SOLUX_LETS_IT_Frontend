@@ -1,5 +1,7 @@
 import { CONSTRAINTS } from './constraints';
 
+export const BRAND_MESSAGE = '모두를 위한 IT 프로젝트 커뮤니티';
+
 export const HIGHLIGHT_MARK = '{{highlight}}';
 
 export const SIGNUP_MESSAGES = {

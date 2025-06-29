@@ -6,6 +6,5 @@ export const Wrapper = styled.div`
   height: 100vh;
   margin: 0 auto;
   padding: ${({ theme }) => `${theme.spacing.pagePadding} 8px`};
-  margin-bottom: 100px;
   box-sizing: border-box;
 `;
