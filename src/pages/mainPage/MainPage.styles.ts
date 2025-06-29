@@ -20,5 +20,6 @@ export const MainPageContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
+  padding-bottom: 100px;
   ${scrollableStyle}
 `

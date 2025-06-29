@@ -6,6 +6,7 @@ export const SignUpPageContainer = styled.div(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'space-between',
   height: `calc(100dvh - ${theme.spacing.pagePadding}*2)`, 
+  boxSizing: 'border-box',
 }));
 
 export const MultiSelectCardContainer = styled.div`

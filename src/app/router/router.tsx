@@ -1,6 +1,6 @@
 import { Layout } from '../../pages/ui';
 import { createBrowserRouter, Navigate } from 'react-router-dom';
-import { SignUpPage } from '../../pages';
+import { LoginPage, SignUpPage } from '../../pages';
 import { MainPage } from '../../pages';
 import ProjectsPage from '../../pages/projectsPage/ProjectsPage';
 import MembersPage from '../../pages/membersPage/MembersPage';
@@ -31,6 +31,10 @@ export const router = createBrowserRouter([
       {
         path: '/sign-up',
         element: <SignUpPage />,
+      },
+      {
+        path: '/login',
+        element: <LoginPage />,
       },
     ],
   },
