@@ -2,30 +2,26 @@ import { useState } from 'react';
 
 interface UseCompositionInputProps {
   initialValue: string;
+  onStore: (value: string) => void;
 }
-export const useCompositionInput = ({ initialValue }: UseCompositionInputProps) => {
+// TODO : 닉네임 공백 제거
+export const useCompositionInput = ({ initialValue, onStore }: UseCompositionInputProps) => {
   const [value, setValue] = useState(initialValue);
-  const [isComposing, setIsComposing] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
-  };
-
-  const handleCompositionStart = () => {
-    setIsComposing(true);
+    onStore(e.currentTarget.value);
   };
 
   const handleCompositionEnd = (e: React.CompositionEvent<HTMLInputElement>) => {
-    setIsComposing(false);
-    setValue(e.currentTarget.value);
+    const currentValue = e.currentTarget.value;
+    setValue(currentValue);
   };
 
   return {
     value,
-    isComposing,
     handlers: {
       onChange: handleChange,
-      onCompositionStart: handleCompositionStart,
       onCompositionEnd: handleCompositionEnd,
     },
   };

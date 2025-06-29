@@ -2,6 +2,7 @@ import { handleImageError } from '../../../../shared/lib';
 import type { TextButtonVariantsTypes } from '../../../../shared/types';
 import * as S from './TextButton.styles';
 import type { ComponentProps } from 'react';
+import fallbackIcon from '../../../assets/icons/ic_fallback.svg';
 
 interface ButtonProps extends ComponentProps<'button'> {
   variant: TextButtonVariantsTypes;
@@ -19,7 +20,9 @@ const Button = ({ variant, iconSrc, buttonText, ...buttonProps }: ButtonProps) =
       $variant={variant}
       disabled={buttonProps.disabled}
     >
-      {iconSrc ? <img src={iconSrc} alt="icon" onError={handleImageError} /> : null}
+      {iconSrc ? (
+        <img src={iconSrc} alt="icon" onError={(e) => handleImageError(e, fallbackIcon)} />
+      ) : null}
       {buttonText}
     </S.ButtonContainer>
   );

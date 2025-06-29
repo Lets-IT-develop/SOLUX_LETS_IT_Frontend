@@ -2,11 +2,7 @@ import * as S from './SignUpPageHeader.styles';
 import GoBackIcon from '../../../../shared/assets/icons/ic_arrow_back.svg';
 import { getProgressDegree } from '../../../../shared/lib/utils/getProgressDegree';
 import { SIGNUP_STEPS } from '../../../../shared/constants/steps';
-import {
-  STATIC_SIGNUP_MESSAGES,
-  DYNAMIC_SIGNUP_MESSAGES,
-  HIGHLIGHT_TEXT,
-} from '../../../../shared/constants/messages';
+import { SIGN_UP_HIGHLIGHT_TEXT, SIGNUP_MESSAGES } from '../../../../shared/constants/messages';
 import { ProgressBar } from '../../../../features/signup/ui';
 import { renderWithHighlight } from '../../../../shared/lib';
 
@@ -18,14 +14,13 @@ interface SignUpPageHeaderProps {
 
 const SignUpPageHeader = ({ goBackStep, step, nickname }: SignUpPageHeaderProps) => {
   const getGuideText = () => {
-    if (step === 'age' || step === 'interest') {
-      return DYNAMIC_SIGNUP_MESSAGES[step](nickname);
-    }
-    return STATIC_SIGNUP_MESSAGES[step];
+    return SIGNUP_MESSAGES[step](nickname);
   };
 
-  const highlightText =
-    step in HIGHLIGHT_TEXT ? HIGHLIGHT_TEXT[step as keyof typeof HIGHLIGHT_TEXT] : '';
+  const highlightTexts =
+    step in SIGN_UP_HIGHLIGHT_TEXT
+      ? SIGN_UP_HIGHLIGHT_TEXT[step as keyof typeof SIGN_UP_HIGHLIGHT_TEXT]
+      : [];
 
   return (
     <S.SignUpPageHeaderSection>
@@ -36,7 +31,7 @@ const SignUpPageHeader = ({ goBackStep, step, nickname }: SignUpPageHeaderProps)
         <ProgressBar progress={getProgressDegree(step, [...SIGNUP_STEPS])} />
       </S.SignUpPageHeaderContainer>
       <S.SignUpPageGuideText>
-        {renderWithHighlight(getGuideText(), highlightText)}
+        {renderWithHighlight(getGuideText(), [...highlightTexts])}
       </S.SignUpPageGuideText>
     </S.SignUpPageHeaderSection>
   );

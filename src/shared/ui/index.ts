@@ -4,3 +4,4 @@ export * from './select';
 export * from './toggleSwitch';
 export * from './input';
 export * from './text';
+export * from './notificationModal';

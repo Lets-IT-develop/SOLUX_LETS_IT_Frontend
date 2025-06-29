@@ -50,9 +50,7 @@ export const ButtonContainer = styled.button<{
   border-radius: 12px;
   padding: 12px 20px;
   box-sizing: border-box;
-  font-size: ${({ theme }) => theme.typography.buttonPrimary.fontSize};
-  font-weight: ${({ theme }) => theme.typography.buttonPrimary.fontWeight};
-  line-height: ${({ theme }) => theme.typography.buttonPrimary.lineHeight};
+ ${({ theme }) => ({...theme.typography.buttonPrimary})};
   &:disabled {
     cursor: not-allowed;
   }

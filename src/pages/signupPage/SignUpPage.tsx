@@ -1,36 +1,32 @@
 import { useEffect, useRef } from 'react';
-import { useSignupFunnel } from '../../features/signup';
-import { MultiSelectCard, ProfileImageUploader } from '../../features/signup/ui';
-import { useCompositionInput } from '../../shared';
-import {
-  AGE_DETAIL_OPTIONS,
-  AGE_OPTIONS,
-  INTEREST_OPTIONS,
-} from '../../shared/constants/constants';
-import { CONSTRAINTS } from '../../shared/constants/constraints';
-import { toggleSetData } from '../../shared/lib/utils/toggleSetData';
-import { TextButton } from '../../shared/ui/button';
-import { InputGroup } from '../../shared/ui/input';
-import { Select } from '../../shared/ui/select';
+import { ProfileImageUploader, useSignupFunnel } from '../../features';
+import { MultiSelectCard } from '../../features';
+import { AGE_DETAIL_LABELS, AGE_LABELS, INTEREST_OPTIONS, useCompositionInput } from '../../shared';
+import { CONSTRAINTS } from '../../shared';
+import { toggleSetData } from '../../shared';
+import { TextButton } from '../../shared';
+import { InputGroup } from '../../shared';
+import { Select } from '../../shared';
 import * as S from './SignUpPage.styles';
-import SignUpPageHeader from './ui/signUpPageHeader/SignUpPageHeader';
+import { SignUpPageHeader } from './ui';
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../../shared';
 
 // TODO : 실명 인증 아이콘 추가 (디자인 완성 시)
 // TODO : 실명 인증 기능 추가
-// TODO : 메인 화면으로 이동 클릭 시 홈 화면으로 이동
 // TODO : validation + 에러메세지 toast 추가
 const SignUpPage = () => {
   const { funnel, goBackStep, storeData, proceedToNextStep } = useSignupFunnel();
 
   const nickName = useCompositionInput({
     initialValue: funnel.context.nickName,
+    onStore: (value: string) => storeData('nickName', value),
   });
-
-  const ageLabels = AGE_OPTIONS.map((option) => option.label);
-  const ageDetailLabels = AGE_DETAIL_OPTIONS.map((option) => option.label);
 
   const inputRef = useRef<HTMLInputElement>(null);
   const selectRef = useRef<HTMLButtonElement>(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (funnel.step === 'nickName') {
@@ -47,6 +43,7 @@ const SignUpPage = () => {
   }, [funnel.step]);
 
   const handleKeydown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    // TODO : 각 step 별 유효 조건 따로 관리 후 막기
     if (e.key === 'Enter') {
       proceedToNextStep();
     }
@@ -97,14 +94,14 @@ const SignUpPage = () => {
             <S.SelectContainer>
               <Select
                 defaultOption="선택"
-                options={ageLabels}
+                options={[...AGE_LABELS]}
                 value={context.age}
                 onSelectedValueChange={(value) => storeData('age', value)}
                 ref={selectRef}
               />
               <Select
                 defaultOption="초/중/후"
-                options={ageDetailLabels}
+                options={[...AGE_DETAIL_LABELS]}
                 value={context.ageDetail}
                 onSelectedValueChange={(value) => storeData('ageDetail', value)}
               />
@@ -164,7 +161,7 @@ const SignUpPage = () => {
           <>
             <TextButton
               variant="primary"
-              onClick={proceedToNextStep}
+              onClick={() => navigate(ROUTES.home)}
               buttonText="Let's IT 시작하기"
             />
           </>

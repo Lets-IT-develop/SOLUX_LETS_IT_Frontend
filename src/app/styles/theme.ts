@@ -45,6 +45,11 @@ export const theme = {
       fontWeight: 600,
       lineHeight: '140%',
     },
+    heading3: {
+      fontSize: '18px',
+      fontWeight: 600,
+      lineHeight: '150%',
+    },
     bodyLarge: {
       fontSize: '16px',
       fontWeight: 500,
@@ -83,5 +88,10 @@ export const theme = {
   },
   spacing: {
     pagePadding: '20px',
+  },
+  zIndex: {
+    default: 1,
+    floatButton: 100,
+    layoutScrollShadow: 50,
   },
 };

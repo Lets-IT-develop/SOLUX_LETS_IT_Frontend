@@ -9,3 +9,11 @@
 ### ⚠️ Fix
 - [x] input 깨지는 문제 해결
 - [x] max 개수 이상으로 클릭할 수 없게끔 button disabled 처리
+- [x] sign-up 상단 guideMessage에 닉네임이 안뜨는 문제 해결 
+
+### ✅ Feat
+- [x] 알람 모달 컴포넌트 제작
+- [x] 알람 모달 컴포넌트 애니메이셔 제작
+- [x] 프로젝트 component 제작
+- [x] 홈화면 제작
+- [x] 홈화면 하단 블러처리 (스크롤이 가능할 경우)
