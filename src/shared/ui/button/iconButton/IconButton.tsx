@@ -4,13 +4,14 @@ import fallbackIcon from '../../../assets/icons/ic_fallback.svg';
 
 interface IconButtonProps {
   iconSrc: string;
+  alt: string;
 }
 
-const IconButton = ({ iconSrc }: IconButtonProps) => {
+const IconButton = ({ iconSrc, alt }: IconButtonProps) => {
   return (
     <S.ButtonContainer>
       {iconSrc ? (
-        <img src={iconSrc} alt="icon" onError={(e) => handleImageError(e, fallbackIcon)} />
+        <img src={iconSrc} alt={alt} onError={(e) => handleImageError(e, fallbackIcon)} />
       ) : null}
     </S.ButtonContainer>
   );

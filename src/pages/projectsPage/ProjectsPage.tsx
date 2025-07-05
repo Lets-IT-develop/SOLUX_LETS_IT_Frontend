@@ -10,7 +10,7 @@ import {
 import PenIcon from '../../shared/assets/icons/ic_pen.svg';
 import { z } from 'zod';
 import Title from '../../shared/ui/text/title/Title';
-import ProjectCardList from '../../features/project/ui/projectCardList/ProjectCardList';
+import { ProjectCardList } from '../../shared';
 
 const ProjectsPage = () => {
   // TODO : 백엔드 데이터 하단 형태로 변경 (info)

@@ -3,7 +3,7 @@ import GoBackIcon from '../../../../shared/assets/icons/ic_arrow_back.svg';
 import { getProgressDegree } from '../../../../shared/lib/utils/getProgressDegree';
 import { SIGNUP_STEPS } from '../../../../shared/constants/steps';
 import { SIGN_UP_HIGHLIGHT_TEXT, SIGNUP_MESSAGES } from '../../../../shared/constants/messages';
-import { ProgressBar } from '../../../../features/signup/ui';
+import { ProgressBar } from '../../../../shared';
 import { renderWithHighlight } from '../../../../shared/lib';
 
 interface SignUpPageHeaderProps {

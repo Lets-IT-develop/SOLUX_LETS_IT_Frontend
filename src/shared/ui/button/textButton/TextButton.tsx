@@ -21,7 +21,7 @@ const Button = ({ variant, iconSrc, buttonText, ...buttonProps }: ButtonProps) =
       disabled={buttonProps.disabled}
     >
       {iconSrc ? (
-        <img src={iconSrc} alt="icon" onError={(e) => handleImageError(e, fallbackIcon)} />
+        <img src={iconSrc} alt="button icon" onError={(e) => handleImageError(e, fallbackIcon)} />
       ) : null}
       {buttonText}
     </S.ButtonContainer>

@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { ProfilePreview } from '../../../../../features';
+import { ProfilePreview } from '../../../profile';
 import { NOTIFICATION_HIGHLIGHT_TEXT, NOTIFICATION_MESSAGES } from '../../../../constants';
 import { renderWithHighlight } from '../../../../lib';
 import type { InterestType } from '../../../../types/types';

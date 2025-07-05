@@ -3,11 +3,17 @@ import Logo from '../../../shared/assets/logo/logo.svg';
 import SearchIcon from '../../../shared/assets/icons/ic_search.svg';
 import AlarmIcon from '../../../shared/assets/icons/ic_alarm.svg';
 import MenuIcon from '../../../shared/assets/icons/ic_menu.svg';
-import { ROUTES, ToggleSwitch } from '../../../shared';
-import { useNavigate } from 'react-router-dom';
+import { ROUTES, ToggleSwitch, PATH_TO_TAB_INDEX } from '../../../shared';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const MainPageHeader = () => {
   const navigate = useNavigate();
+  const currentPath = useLocation().pathname;
+  const tabContent = [
+    { label: '프로젝트 찾기', onClick: () => navigate(ROUTES.projects) },
+    { label: '맞춤 회원 찾기', onClick: () => navigate(ROUTES.members) },
+  ];
+
   return (
     <S.MainPageHeaderContainer>
       <S.MainPageHeaderTop>
@@ -26,12 +32,7 @@ const MainPageHeader = () => {
           </S.NavigateButton>
         </S.NavigateContainer>
       </S.MainPageHeaderTop>
-      <ToggleSwitch
-        tabContent={[
-          { label: '프로젝트 찾기', onClick: () => navigate(ROUTES.projects) },
-          { label: '맞춤 회원 찾기', onClick: () => navigate(ROUTES.members) },
-        ]}
-      />
+      <ToggleSwitch tabContent={tabContent} initialIndex={PATH_TO_TAB_INDEX[currentPath]} />
     </S.MainPageHeaderContainer>
   );
 };

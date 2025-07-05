@@ -1,5 +1,7 @@
+import { ProfileCardList } from '../../shared';
+
 const MembersPage = () => {
-  return <h2>members page</h2>;
+  return <ProfileCardList />;
 };
 
 export default MembersPage;
