@@ -87,7 +87,18 @@ export const ProfileCardContactInfoContainer = styled.div`
 export const ProfileCardPasteButton = styled.button`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 12px;
+  background-color: ${({ theme }) => theme.colors.primary20};
+  border-radius: 12px;
+  &:active {
+    background-color: ${({ theme }) => theme.colors.secondary};
+  }
+  &:disabled {
+    background-color: ${({ theme }) => theme.colors.gray2};
+    color: ${({ theme }) => theme.colors.gray3};
+  }
 `
 
 export const ProfileCardName = styled.p`

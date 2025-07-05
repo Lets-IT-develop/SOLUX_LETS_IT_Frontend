@@ -44,12 +44,10 @@ const ProfileCard = ({
         </S.ProfileCardInfo>
 
         <S.ProfileCardContactSection>
-          <S.ProfileCardContactInfoContainer>
-            {phoneNumber}{' '}
-            <S.ProfileCardPasteButton type="button">
-              <img src={CopyIcon} alt="copy" />
-            </S.ProfileCardPasteButton>
-          </S.ProfileCardContactInfoContainer>
+          <S.ProfileCardPasteButton>
+            {phoneNumber}
+            <img src={CopyIcon} alt="copy" />
+          </S.ProfileCardPasteButton>
           <IconButton iconSrc={EmailIcon} alt="email" />
         </S.ProfileCardContactSection>
       </S.ProfileCardInfoSection>
