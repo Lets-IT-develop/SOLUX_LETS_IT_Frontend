@@ -1,3 +1,10 @@
+import { ROUTES } from './routes';
+
+export const PATH_TO_TAB_INDEX = {
+  [ROUTES.projects]: 0,
+  [ROUTES.members]: 1,
+};
+
 export const AGE_OPTIONS: { value: string; label: (typeof AGE_LABELS)[number] }[] = [
   { value: '10', label: '10대' },
   { value: '20', label: '20대' },
