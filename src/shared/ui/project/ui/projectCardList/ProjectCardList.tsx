@@ -1,4 +1,4 @@
-import type { ProjectDataType } from '../../../../shared/types/data';
+import type { ProjectDataType } from '../../../../types/data';
 import ProjectCard from '../projectCard/ProjectCard';
 import * as S from './ProjectCardList.styles';
 import { Swiper, SwiperSlide } from 'swiper/react';

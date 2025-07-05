@@ -1,7 +1,7 @@
 import { Fragment } from 'react/jsx-runtime';
 import * as S from './ProjectCard.styles';
-import type { ProjectDataType } from '../../../../shared/types/data';
-import { PROJECT_CARD_LABEL } from '../../../../shared';
+import type { ProjectDataType } from '../../../../types/data';
+import { PROJECT_CARD_LABEL } from '../../../../constants';
 
 interface ProjectCardProps {
   projectData: ProjectDataType;

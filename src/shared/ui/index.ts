@@ -5,5 +5,6 @@ export * from './toggleSwitch';
 export * from './input';
 export * from './text';
 export * from './notificationModal';
-export { default as ProfileCard } from './profile/ui/profileCard/ProfileCard';
+export * from './profile/ui';
+export * from './project/ui';
 export { default as ProgressBar } from './progressBar/ProgressBar';
