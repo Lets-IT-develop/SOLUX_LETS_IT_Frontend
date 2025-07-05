@@ -1,3 +1,5 @@
+import 'swiper/css';
+import 'swiper/css/pagination';
 import { css } from '@emotion/react';
 import type { Theme } from '@emotion/react';
 
@@ -30,5 +32,7 @@ export const globalCss = (theme: Theme) => css`
   select {
     font-family: inherit; 
   }
-
+  .swiper .swiper-pagination {
+    bottom: -30px;
+  }
 `;

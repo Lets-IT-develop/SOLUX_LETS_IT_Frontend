@@ -1,7 +1,7 @@
-import { handleImageError } from '../../../../shared';
+import { handleImageError } from '../../../../lib';
 import * as S from './ProfilePreview.styles';
-import defaultProfile from '../../../../shared/assets/images/default_profile.svg';
-import type { InterestType } from '../../../../shared/types/types';
+import defaultProfile from '../../../../assets/images/default_profile.svg';
+import type { InterestType } from '../../../../types/types';
 
 interface ProfilePreviewProps {
   imageUrl?: string;

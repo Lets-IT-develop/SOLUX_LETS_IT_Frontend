@@ -1,9 +1,49 @@
-import ProfileCard from "../../shared/ui/profileCard/ProfileCard";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { ProfileCard } from '../../shared/ui';
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+const mockData = [
+  {
+    profileImageUrl: 'https://via.placeholder.com/150',
+    name: 'John Doe',
+    interest: ['기획자', '개발자'],
+    description: '첫 번째 데이터입니다.',
+    phoneNumber: '010-1234-5678',
+    email: 'john.doe@example.com',
+  },
+  {
+    profileImageUrl: 'https://via.placeholder.com/150',
+    name: 'John Doe',
+    interest: ['기획자', '개발자'],
+    description: '두 번째 데이터입니다.',
+    phoneNumber: '010-1234-5678',
+    email: 'john.doe@example.com',
+  },
+];
 
 const MembersPage = () => {
-  return <ProfileCard profileImageUrl="djqt" name="John Doe" interest={['기획자', '개발자']} 
-  description="프론트엔드의 새로운 신드롬을 보여주주주주ㅜ주주ㅜ주주주주주주주줒" 
-  phoneNumber="010-1234-5678" email="john.doe@example.com" />
+  return (
+    <Swiper
+      spaceBetween={16}
+      slidesPerView="auto"
+      pagination={{ clickable: true }}
+      modules={[Navigation, Pagination]}
+      slidesOffsetBefore={0}
+      slidesOffsetAfter={0}
+      centeredSlides={false}
+      grabCursor
+      loop
+    >
+      {mockData.map((data) => (
+        <SwiperSlide key={data.name}>
+          <ProfileCard profileData={data} />
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  );
 };
 
 export default MembersPage;
